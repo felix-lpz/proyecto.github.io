@@ -10,8 +10,16 @@ const routes: Routes = [
   },
   {
     path: '404',component: NotFoundComponent
-  }
+  },
   //* Vamo a utilizar a lazy loading
+  {
+    path: 'auth', loadChildren:()=> import("./modules/auth/auth.module").
+    then(x => x.AuthModule)
+  },
+  {
+    path: 'dashboard', loadChildren:() => import("./modules/template/template.module").
+    then(x => x.TemplateModule)
+  }
 ];
 
 @NgModule({
