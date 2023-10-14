@@ -5,6 +5,7 @@ import { RequestLogin } from '../../models/request-login.models';
 import { LoginService } from '../../service/login.service';
 import { Router } from '@angular/router';
 import { ResponseLogin } from 'src/app/models/Response-loguin.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -43,4 +44,8 @@ export class LoginComponent {
       });
 
     }
+    ShowModal(){
+      Swal.fire('SweetAlert2 is working!');
+    }
 }
+
