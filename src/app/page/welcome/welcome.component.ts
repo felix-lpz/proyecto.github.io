@@ -1,6 +1,6 @@
 import { FactoryTarget } from '@angular/compiler';
 import { Component } from '@angular/core';
-import {faCookie,faCoffee} from "@fortawesome/free-solid-svg-icons";
+import {faRightToBracket,faCartShopping} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-welcome',
@@ -9,7 +9,7 @@ import {faCookie,faCoffee} from "@fortawesome/free-solid-svg-icons";
 })
 export class WelcomeComponent {
   Icon = {
-    faCookie: faCoffee,
-    faCoffee: faCoffee
+    faRightToBracket:faRightToBracket,
+    faCartShopping:faCartShopping
   };
 }

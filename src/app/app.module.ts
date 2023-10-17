@@ -8,13 +8,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WelcomeComponent } from './page/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome"
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
