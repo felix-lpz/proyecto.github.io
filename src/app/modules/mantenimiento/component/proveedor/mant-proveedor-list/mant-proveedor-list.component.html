@@ -17,7 +17,7 @@
                         <th>Codigo Ubigeo</th>
                         <th>Direccion</th>
                         <th>
-                            <button >open</button>
+                            <button (click)="OpenModal(modalEdit)">open</button>
                             <!--
                             <button (click)="crearCargo(modalEdit)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-plus"></i>
@@ -27,12 +27,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!--
-                    <tr *ngFor="let cargo of cargos">
-                        <td> {{cargo.id}} </td>
-                        <td> {{cargo.codigo}} </td>
-                        <td> {{cargo.nombre}} </td>
-                        <td> {{cargo.estadoDescripcion}} </td>
+                    
+                    <tr *ngFor="let cargo of proveedor">
+                        <td> {{cargo.IdPersona}} </td>
+                       <!--
                         <td>
                             <button (click)="editarCargo(modalEdit,cargo)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
@@ -41,8 +39,9 @@
                                 <i class="fas fa-trash"></i>
                             </button>
                         </td>
+                        -->
                     </tr>
-                    -->
+                
                 </tbody>
             </table>
         </div>
@@ -50,6 +49,9 @@
 </div>
 <ng-template #modalEdit>
     <app-mant-proveedor-register
-    
+    [title] = "titleModal"
+    [proveedor]="proveedorSelect"
+    [accion]="actionModal"
+    (closeModalEmmit)="getCloseModalEmmit($event)"
     ></app-mant-proveedor-register>
 </ng-template>

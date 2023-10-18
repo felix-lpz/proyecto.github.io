@@ -9,6 +9,7 @@ import { WelcomeComponent } from './page/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {BsModalRef,BsModalService} from "ngx-bootstrap/modal"
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [BsModalRef,BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
