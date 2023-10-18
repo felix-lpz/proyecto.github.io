@@ -8,11 +8,16 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Código</th>
-                        <th>Nombre</th>
-                        <th>Estado</th>
+                        <th>IdProvedro</th>
+                        <th>NombreProvedor</th>
+                        <th>TipoPersona</th>
+                        <th>TipoDocumento</th>
+                        <th>Numero Documento</th>
+                        <th>Numero Telefono</th>
+                        <th>Codigo Ubigeo</th>
+                        <th>Direccion</th>
                         <th>
+                            <button >open</button>
                             <!--
                             <button (click)="crearCargo(modalEdit)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-plus"></i>
@@ -45,5 +50,6 @@
 </div>
 <ng-template #modalEdit>
     <app-mant-proveedor-register
+    
     ></app-mant-proveedor-register>
 </ng-template>

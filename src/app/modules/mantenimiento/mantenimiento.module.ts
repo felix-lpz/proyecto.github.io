@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MantenimientoRoutingModule } from './mantenimiento-routing.module';
 import { MantProveedorListComponent } from './component/proveedor/mant-proveedor-list/mant-proveedor-list.component';
@@ -16,7 +17,6 @@ import { MantProveedorRegisterComponent } from './component/proveedor/mant-prove
   imports: [
     CommonModule,
     MantenimientoRoutingModule,
-    ModalModule
   ]
 })
 export class MantenimientoModule { }
