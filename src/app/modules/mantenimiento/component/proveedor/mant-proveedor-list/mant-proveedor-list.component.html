@@ -1,0 +1,49 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">MANTENIMIENTO DE CARGOS</h1>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                        <th>
+                            <!--
+                            <button (click)="crearCargo(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            -->
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--
+                    <tr *ngFor="let cargo of cargos">
+                        <td> {{cargo.id}} </td>
+                        <td> {{cargo.codigo}} </td>
+                        <td> {{cargo.nombre}} </td>
+                        <td> {{cargo.estadoDescripcion}} </td>
+                        <td>
+                            <button (click)="editarCargo(modalEdit,cargo)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button (click)="eliminarRegistro(cargo.id)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #modalEdit>
+    <app-mant-proveedor-register
+    ></app-mant-proveedor-register>
+</ng-template>

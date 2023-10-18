@@ -4,7 +4,13 @@ import { TemplaraComponent } from './component/templara/templara.component';
 
 const routes: Routes = [
   {
-    path: '',component: TemplaraComponent
+    path: '',component: TemplaraComponent,
+    children:[
+      {
+        path: 'mantenimiento', loadChildren: ()=> import("./../mantenimiento/mantenimiento.module").
+        then(x => x.MantenimientoModule)
+      }
+    ]
   }
 ];
 
