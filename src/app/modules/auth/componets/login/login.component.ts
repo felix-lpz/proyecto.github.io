@@ -23,7 +23,6 @@ export class LoginComponent {
       });
     }
     Login(){
-      debugger;
       console.log(this.FormLogin.getRawValue())
       this.RequestLogin = this.FormLogin.getRawValue();
       this.loginServie.Login(this.RequestLogin).subscribe({

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ResponseProvedor } from 'src/app/models/Response/Compra/Response_Provedor';
 import { RequestProveedor } from '../../../models/Compra/Request_Proveedor';
 import { ProveedorService } from '../../../service/proveedor.service';
+import { AccionMantConst } from 'src/app/constants/general_constant';
 
 @Component({
   selector: 'app-mant-proveedor-register',
@@ -24,10 +25,14 @@ export class MantProveedorRegisterComponent implements OnInit {
   {
     this.myForm = this.fb.group(
       {
-        id: [{ value: 0, disabled: true }, [Validators.required]],
-        codigo: [null, [Validators.required]],
-        nombre: [null, [Validators.required]],
-        idEstado: [null, [Validators.required]],
+        idProveedor: [{ value: 0, disabled: true }, [Validators.required]],
+        nombreProveedor: [null, [Validators.required]],
+        tipoPersona: [null, [Validators.required]],
+        tipoDocumento: [null, [Validators.required]],
+        numeroDocumento: [null, [Validators.required]],
+        numeroTelefono: [null, [Validators.required]],
+        codigoUbigeo: [null,[Validators.required]],
+        direcion: [null,[Validators.required]]
       })
   }
 
@@ -38,7 +43,41 @@ export class MantProveedorRegisterComponent implements OnInit {
     this.myForm.patchValue(this.proveedor);
 
   }
+
+  Guardar()
+  {
+    this.proveedorEnvio = this.myForm.getRawValue();
+    switch(this.accion)
+    {
+      case AccionMantConst.crear:
+        break;
+      case AccionMantConst.editar:
+        break;
+      case AccionMantConst.eliminar:
+        break;
+    }
+  }
   
+CrearRegistro()
+{
+  this.proveedorService.Create(this.proveedorEnvio).subscribe(
+    {
+      next:(data:ResponseProvedor)=>
+      {
+        alert(data.Menssage);
+      },
+      error:()=>
+      {
+        alert("Erro");
+      },
+      complete:()=>
+      {
+        this.cerrarModal(true);
+      }
+    }
+  )
+}
+
   cerrarModal(res: boolean) {
     //true ==> hubo modificación en base de datos ==> necesito volver a cargar la lista
     //false ==> NO hubo modificación en base de datos ==> NOOOOOO necesito volver a cargar la lista

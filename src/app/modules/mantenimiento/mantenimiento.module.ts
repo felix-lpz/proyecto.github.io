@@ -7,6 +7,7 @@ import { MantenimientoRoutingModule } from './mantenimiento-routing.module';
 import { MantProveedorListComponent } from './component/proveedor/mant-proveedor-list/mant-proveedor-list.component';
 import { MantProveedorRegisterComponent } from './component/proveedor/mant-proveedor-register/mant-proveedor-register.component';
 import { SharedModule } from '../shared/shared.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 
 
@@ -19,7 +20,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     MantenimientoRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ]
 })
 export class MantenimientoModule { }

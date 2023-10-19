@@ -17,19 +17,24 @@
                         <th>Codigo Ubigeo</th>
                         <th>Direccion</th>
                         <th>
-                            <button (click)="OpenModal(modalEdit)">open</button>
-                            <!--
-                            <button (click)="crearCargo(modalEdit)" class="btn btn-primary btn-sm">
+                            
+                            <button (click)="CrearProveedor(modalEdit)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-plus"></i>
                             </button>
-                            -->
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     
-                    <tr *ngFor="let cargo of proveedor">
-                        <td> {{cargo.IdPersona}} </td>
+                    <tr *ngFor="let provedor of proveedor">
+                        <td> {{provedor.IdProvedor}} </td>
+                        <td>{{provedor.Persona.NombrePersona}}</td>
+                        <td>{{provedor.Persona.TipoPersona}}</td>
+                        <td>{{provedor.Persona.TipoDocumento}}</td>
+                        <td>{{provedor.Persona.NumeroDocumento}}</td>
+                        <td>{{provedor.Persona.Telefono}}</td>
+                        <td>{{provedor.Persona.Direccion}}</td>
+                        <td>{{provedor.Persona.CodigoUbigeo}}</td>
                        <!--
                         <td>
                             <button (click)="editarCargo(modalEdit,cargo)" class="btn btn-primary btn-sm">
