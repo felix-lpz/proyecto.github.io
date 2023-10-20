@@ -17,10 +17,10 @@ export class CrudService<T,Y> implements InterfaceCrud<T,Y> {
     return this.http.get<Y[]>(this.url_service);
   }
   Create(requets: T): Observable<Y> {
-    return this.http.post<Y>(this.url_service,Request);
+    return this.http.post<Y>(this.url_service,requets);
   }
   Update(request: T): Observable<Y> {
-    return this.http.put<Y>(this.url_service,Request);
+    return this.http.put<Y>(this.url_service,request);
   }
   Delete(id: number): Observable<number> {
     return this.http.delete<number>(`${this.url_service}${id}`);
