@@ -26,20 +26,20 @@
                 </thead>
                 <tbody>
                     
-                    <tr *ngFor="let provedor of proveedor">
-                        <td> {{provedor.IdProvedor}} </td>
-                        <td>{{provedor.Persona.NombrePersona}}</td>
-                        <td>{{provedor.Persona.TipoPersona}}</td>
-                        <td>{{provedor.Persona.TipoDocumento}}</td>
-                        <td>{{provedor.Persona.NumeroDocumento}}</td>
-                        <td>{{provedor.Persona.Telefono}}</td>
-                        <td>{{provedor.Persona.Direccion}}</td>
-                        <td>{{provedor.Persona.CodigoUbigeo}}</td>
-                       <!--
+                    <tr *ngFor=" let provedor of vwproveedor">
+                        <td>{{provedor.idProvedor}}</td>
+                        <td>{{provedor.nombrePersona}}</td>
+                        <td>{{provedor.tipoPersona}}</td>
+                        <td>{{provedor.tipoDocumento}}</td>
+                        <td>{{provedor.numerodocumento}}</td>
+                        <td>{{provedor.telefono}}</td>
+                        <td>{{provedor.codigoUbigeo}}</td>
+                        <td>{{provedor.direccion}}</td>
                         <td>
-                            <button (click)="editarCargo(modalEdit,cargo)" class="btn btn-primary btn-sm">
+                            <button (click)="EditarProveedor(modalEdit,proveedorSelect)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
                             </button>
+                            <!--
                             <button (click)="eliminarRegistro(cargo.id)" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash"></i>
                             </button>

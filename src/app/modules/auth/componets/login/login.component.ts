@@ -5,7 +5,7 @@ import { RequestLogin } from '../../models/request-login.models';
 import { LoginService } from '../../service/login.service';
 import { Router } from '@angular/router';
 import { ResponseLogin } from 'src/app/models/Response-loguin.model';
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-login',
@@ -23,23 +23,25 @@ export class LoginComponent {
       });
     }
     Login(){
+      debugger;
       console.log(this.FormLogin.getRawValue())
       this.RequestLogin = this.FormLogin.getRawValue();
       this.loginServie.Login(this.RequestLogin).subscribe({
         next: (data:ResponseLogin) =>{
           console.log(data);
-          alert("Loguin Correcto");
-          this.router.navigate(["dashboard"])
           if(data.success)
           {
+            alert("Loguin Correcto");
+            this.router.navigate(["dashboard"]);
+            this.ShowModal();
             sessionStorage.setItem("token",data.token);
           }
           else{
             return;
           }
         },
-        error: (err) => { alert("Usuaro y Contraseña Incorrecto")},
-        complete: () => { alert("Usuario Ingreso")}
+        error: (err) => { },
+        complete: () => { }
       });
 
     }

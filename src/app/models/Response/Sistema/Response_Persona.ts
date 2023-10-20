@@ -1,17 +1,17 @@
 export class ResponsePersona {
-    IdPersona:number = 0;
+    idPersona:number = 0;
 
-    NombrePersona:string = "";
+    nombrePersona:string = "";
 
-    TipoPersona:string = "";
+    tipoPersona:string = "";
 
-    TipoDocumento:string = "";
+    tipoDocumento:string = "";
 
-    NumeroDocumento:string = "";
+    numeroDocumento:string = "";
 
-    Telefono:string = "";
+    telefono:string = "";
 
-    CodigoUbigeo:string ="";
+    codigoUbigeo:string ="";
 
-    Direccion:string = "";
+    direccion:string = "";
 }

@@ -5,6 +5,7 @@ import { ResponseProvedor } from 'src/app/models/Response/Compra/Response_Proved
 import { ProveedorService } from '../../../service/proveedor.service';
 import { AccionMantConst } from 'src/app/constants/general_constant';
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
+import { ResponseVWProvedor } from 'src/app/models/Response/Compra/Response_VW_Provedor';
 
 @Component({
   selector: 'app-mant-proveedor-list',
@@ -14,6 +15,7 @@ import {faPlus} from "@fortawesome/free-solid-svg-icons";
 export class MantProveedorListComponent implements OnInit {
   modalRef?: BsModalRef;
   proveedor: ResponseProvedor[] = [];
+  vwproveedor: ResponseVWProvedor[] = [];
   proveedorSelect: ResponseProvedor = new ResponseProvedor();
   titleModal:string = "";
   actionModal: number = 0;
@@ -29,19 +31,21 @@ export class MantProveedorListComponent implements OnInit {
     }
     
   ngOnInit(): void {
-    this.ListarProvedores()
+    this.ListarProvedores();
   }
   
   ListarProvedores()
   {
-    this.provedorService.GetAll().subscribe({
-      next: (data: ResponseProvedor[]) =>
+    debugger;
+    this.provedorService.MostrarProvedor().subscribe({
+      next: (data:ResponseVWProvedor[]) =>
       {
-        this.proveedor = data;
+        this.vwproveedor = data;
+        console.log(this.vwproveedor);
       },
-      error:(err) =>
+      error:(error) =>
       {
-        console.error(err);
+        console.error(error);
       },
       complete: ()=>
       {

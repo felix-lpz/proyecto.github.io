@@ -4,6 +4,7 @@ import { ResponseProvedor } from 'src/app/models/Response/Compra/Response_Proved
 import { RequestProveedor } from '../../../models/Compra/Request_Proveedor';
 import { ProveedorService } from '../../../service/proveedor.service';
 import { AccionMantConst } from 'src/app/constants/general_constant';
+import { ResponseVWProvedor } from 'src/app/models/Response/Compra/Response_VW_Provedor';
 
 @Component({
   selector: 'app-mant-proveedor-register',
@@ -38,7 +39,7 @@ export class MantProveedorRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("title ==>", this.title);
-    console.log("cargo ==>", this.proveedor);
+    console.log("Provedor ==>", this.proveedor);
 
     this.myForm.patchValue(this.proveedor);
 
@@ -46,10 +47,12 @@ export class MantProveedorRegisterComponent implements OnInit {
 
   Guardar()
   {
+    debugger;
     this.proveedorEnvio = this.myForm.getRawValue();
     switch(this.accion)
     {
       case AccionMantConst.crear:
+        this.CrearRegistro();
         break;
       case AccionMantConst.editar:
         break;
@@ -60,11 +63,12 @@ export class MantProveedorRegisterComponent implements OnInit {
   
 CrearRegistro()
 {
+  debugger;
   this.proveedorService.Create(this.proveedorEnvio).subscribe(
     {
-      next:(data:ResponseProvedor)=>
+      next:(data:ResponseVWProvedor)=>
       {
-        alert(data.Menssage);
+        alert("Message");
       },
       error:()=>
       {

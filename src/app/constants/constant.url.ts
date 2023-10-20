@@ -1,7 +1,7 @@
-export const dominio = "https://localhost:7063/";
+export const dominio = "https://localhost:7287/";
 
 
 export const urlConstants = {
-    auth: dominio + "api/auth/",
-    provedor: dominio + "api/proveedor/"
+    auth: dominio + "api/auth",
+    provedor: dominio + "api/Proveedor"
 }
