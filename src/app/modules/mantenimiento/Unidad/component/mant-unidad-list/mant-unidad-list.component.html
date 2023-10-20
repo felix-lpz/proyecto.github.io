@@ -1,0 +1,55 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">MANTENIMIENTO DE UNIDA</h1>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>IdUnidad</th>
+                        <th>NombreUnidad</th>
+                        <th>Descripcion</th>
+                        <th>
+                            
+                            <button (click)="OpenModal(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                      <!--
+                    <tr *ngFor=" let provedor of vwproveedor">
+                        <td>{{provedor.idProvedor}}</td>
+                        <td>{{provedor.nombrePersona}}</td>
+                        <td>{{provedor.tipoPersona}}</td>
+                        <td>{{provedor.tipoDocumento}}</td>
+                        <td>{{provedor.numerodocumento}}</td>
+                        <td>{{provedor.telefono}}</td>
+                        <td>{{provedor.codigoUbigeo}}</td>
+                        <td>{{provedor.direccion}}</td>
+                        <td>
+                            <button (click)="EditarProveedor(modalEdit,proveedorSelect)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                          
+                            <button (click)="eliminarRegistro(cargo.id)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                        
+                    </tr>
+                -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #modalEdit>
+    <app-mant-unidad-registe
+    [title]="titleModal"
+    (closeModalEmmit)="GetCloseModalEmmit($event)"
+    ></app-mant-unidad-registe>
+</ng-template>

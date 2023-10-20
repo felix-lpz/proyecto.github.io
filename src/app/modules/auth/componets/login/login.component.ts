@@ -6,6 +6,7 @@ import { LoginService } from '../../service/login.service';
 import { Router } from '@angular/router';
 import { ResponseLogin } from 'src/app/models/Response-loguin.model';
 import Swal from "sweetalert2";
+import { MessageAlert } from 'src/app/functions/Message_Fuctions';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +34,7 @@ export class LoginComponent {
           {
             alert("Loguin Correcto");
             this.router.navigate(["dashboard"]);
-            this.ShowModal();
+            MessageAlert();
             sessionStorage.setItem("token",data.token);
           }
           else{
@@ -45,8 +46,6 @@ export class LoginComponent {
       });
 
     }
-    ShowModal(){
-      Swal.fire('SweetAlert2 is working!');
-    }
+    
 }
 

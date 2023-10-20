@@ -54,7 +54,7 @@
 </div>
 <ng-template #modalEdit>
     <app-mant-proveedor-register
-    [title] = "titleModal"
+    [title]="titleModal"
     [proveedor]="proveedorSelect"
     [accion]="actionModal"
     (closeModalEmmit)="getCloseModalEmmit($event)"

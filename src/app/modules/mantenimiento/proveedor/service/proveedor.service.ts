@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { CrudService } from '../../shared/service/crud.service';
+import { CrudService } from '../../../shared/service/crud.service';
 import { ResponseProvedor } from 'src/app/models/Response/Compra/Response_Provedor';
 import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/http';
 import { urlConstants } from 'src/app/constants/constant.url';
-import { RequestProveedor } from '../models/Compra/Request_Proveedor';
+import { RequestProveedor } from '../../models/Compra/Request_Proveedor';
 import { Observable } from 'rxjs';
 import { ResponseVWProvedor } from 'src/app/models/Response/Compra/Response_VW_Provedor';
 

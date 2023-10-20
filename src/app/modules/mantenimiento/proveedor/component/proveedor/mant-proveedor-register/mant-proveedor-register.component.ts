@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ResponseProvedor } from 'src/app/models/Response/Compra/Response_Provedor';
-import { RequestProveedor } from '../../../models/Compra/Request_Proveedor';
-import { ProveedorService } from '../../../service/proveedor.service';
+import { RequestProveedor } from '../../../../models/Compra/Request_Proveedor';
+import { ProveedorService } from "../../../service/proveedor.service";
 import { AccionMantConst } from 'src/app/constants/general_constant';
 import { ResponseVWProvedor } from 'src/app/models/Response/Compra/Response_VW_Provedor';
 
