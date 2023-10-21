@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import {PaginationModule} from 'ngx-bootstrap/pagination'
+import {NgxPaginationModule} from 'ngx-pagination'
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { MantenimientoRoutingModule } from './mantenimiento-routing.module';
@@ -25,7 +27,10 @@ import { MantUnidadRegisteComponent } from './Unidad/component/mant-unidad-regis
     MantenimientoRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ModalModule,
+    PaginationModule,
+    NgxPaginationModule
   ]
 })
 export class MantenimientoModule { }

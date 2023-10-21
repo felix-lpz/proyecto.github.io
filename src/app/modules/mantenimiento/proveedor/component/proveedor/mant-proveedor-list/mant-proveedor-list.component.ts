@@ -21,6 +21,26 @@ export class MantProveedorListComponent implements OnInit {
   titleModal:string = "";
   actionModal: number = 0;
 
+  
+    //*Paginacion
+    title = 'pagination';
+    post: any;
+    page:number = 1;
+    count: number = 0;
+    tableSize: number =5;
+    tableSizes: any = [5,10,15,20];
+
+    //MEtodos
+    OnTableDataChange(event: any){
+      this.page = event;
+      this.ListarProvedores();
+    }
+    OnTableSizeChange(event: any):void{
+      this.tableSizes = event.target.value;
+      this.page = 1;
+      this.ListarProvedores();
+    }
+
   icon = {
     faPlus: faPlus
   }
@@ -42,6 +62,7 @@ export class MantProveedorListComponent implements OnInit {
       next: (data:ResponseVWProvedor[]) =>
       {
         this.vwproveedor = data;
+        this.post = data;
         console.log(this.vwproveedor);
       },
       error:(error) =>

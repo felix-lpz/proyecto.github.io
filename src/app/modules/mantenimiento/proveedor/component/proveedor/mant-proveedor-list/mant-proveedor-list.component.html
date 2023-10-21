@@ -26,7 +26,11 @@
                 </thead>
                 <tbody>
                     
-                    <tr *ngFor=" let provedor of vwproveedor">
+                    <tr *ngFor=" let provedor of post| paginate:{
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                    }; let i= index">
                         <td>{{provedor.idProvedor}}</td>
                         <td>{{provedor.nombrePersona}}</td>
                         <td>{{provedor.tipoPersona}}</td>
@@ -49,6 +53,15 @@
                 
                 </tbody>
             </table>
+            <div>
+                <pagination-controls
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="OnTableDataChange($event)"
+                >
+
+                </pagination-controls>
+            </div>
         </div>
     </div>
 </div>
