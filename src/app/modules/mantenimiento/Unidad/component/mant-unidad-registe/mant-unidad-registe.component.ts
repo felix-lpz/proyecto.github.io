@@ -25,7 +25,7 @@ export class MantUnidadRegisteComponent implements OnInit {
       {
         idUnidad: [{value:0, disabled: true},[Validators.required]],
         nombreUnidad: [null,[Validators.required]],
-        descripcion: [null,[Validators.required]]
+        descriccion: [null,[Validators.required]]
       }
     )
   }

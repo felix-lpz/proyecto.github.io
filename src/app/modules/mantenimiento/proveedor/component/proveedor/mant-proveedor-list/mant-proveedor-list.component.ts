@@ -16,7 +16,8 @@ export class MantProveedorListComponent implements OnInit {
   modalRef?: BsModalRef;
   proveedor: ResponseProvedor[] = [];
   vwproveedor: ResponseVWProvedor[] = [];
-  proveedorSelect: ResponseProvedor = new ResponseProvedor();
+  proveedorSelect: ResponseVWProvedor = new ResponseVWProvedor();
+  vwprovedorSelect: ResponseVWProvedor = new ResponseVWProvedor();
   titleModal:string = "";
   actionModal: number = 0;
 
@@ -37,7 +38,7 @@ export class MantProveedorListComponent implements OnInit {
   ListarProvedores()
   {
     debugger;
-    this.provedorService.MostrarProvedor().subscribe({
+    this.provedorService.GetAll().subscribe({
       next: (data:ResponseVWProvedor[]) =>
       {
         this.vwproveedor = data;
@@ -56,14 +57,14 @@ export class MantProveedorListComponent implements OnInit {
 
   CrearProveedor(template: TemplateRef<any>)
   {
-    this.proveedorSelect = new ResponseProvedor();
+    this.proveedorSelect = new ResponseVWProvedor();
     this.titleModal = "Nuevo Cargo",
     this.actionModal = AccionMantConst.crear;
     this.OpenModal(template);
   }
-  EditarProveedor(template: TemplateRef<any>,provedor: ResponseProvedor)
+  EditarProveedor(template: TemplateRef<any>,provedor: ResponseVWProvedor)
   {
-    this.proveedorSelect = new ResponseProvedor();
+    this.proveedorSelect = provedor;
     this.titleModal = "Editar Cargo";
     this.actionModal = AccionMantConst.editar;
     this.OpenModal(template);

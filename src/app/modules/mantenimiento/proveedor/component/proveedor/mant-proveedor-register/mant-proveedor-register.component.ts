@@ -13,7 +13,7 @@ import { ResponseVWProvedor } from 'src/app/models/Response/Compra/Response_VW_P
 })
 export class MantProveedorRegisterComponent implements OnInit {
   @Input() title: string = "";
-  @Input() proveedor: ResponseProvedor = new ResponseProvedor();
+  @Input() proveedor: ResponseVWProvedor = new ResponseVWProvedor();
   @Input() accion: number = 0;
 
   @Output() closeModalEmmit = new EventEmitter<boolean>();
@@ -26,14 +26,14 @@ export class MantProveedorRegisterComponent implements OnInit {
   {
     this.myForm = this.fb.group(
       {
-        idProveedor: [{ value: 0, disabled: true }, [Validators.required]],
-        nombreProveedor: [null, [Validators.required]],
+        idProvedor: [{ value: 0, disabled: true }, [Validators.required]],
+        nombrePersona: [null, [Validators.required]],
         tipoPersona: [null, [Validators.required]],
         tipoDocumento: [null, [Validators.required]],
-        numeroDocumento: [null, [Validators.required]],
-        numeroTelefono: [null, [Validators.required]],
+        numerodocumento: [null, [Validators.required]],
+        telefono: [null, [Validators.required]],
         codigoUbigeo: [null,[Validators.required]],
-        direcion: [null,[Validators.required]]
+        direccion: [null,[Validators.required]]
       })
   }
 
@@ -55,6 +55,7 @@ export class MantProveedorRegisterComponent implements OnInit {
         this.CrearRegistro();
         break;
       case AccionMantConst.editar:
+        this.EditarRegistro();
         break;
       case AccionMantConst.eliminar:
         break;
@@ -68,7 +69,7 @@ CrearRegistro()
     {
       next:(data:ResponseVWProvedor)=>
       {
-        alert("Message");
+        alert("se registro correctamente");
       },
       error:()=>
       {
@@ -81,7 +82,26 @@ CrearRegistro()
     }
   )
 }
-
+EditarRegistro()
+{
+  debugger;
+  this.proveedorService.Update(this.proveedorEnvio).subscribe(
+    {
+      next:(data:ResponseVWProvedor)=>
+      {
+        alert("Se actualizo correctamente");
+      },
+      error:()=>
+      {
+        alert("Erro");
+      },
+      complete:()=>
+      {
+        this.cerrarModal(true);
+      }
+    }
+  );
+}
   cerrarModal(res: boolean) {
     //true ==> hubo modificación en base de datos ==> necesito volver a cargar la lista
     //false ==> NO hubo modificación en base de datos ==> NOOOOOO necesito volver a cargar la lista
