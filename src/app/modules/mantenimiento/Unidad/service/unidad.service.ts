@@ -14,7 +14,7 @@ export class UnidadService extends CrudService<RequestUnidad,ResponseUnidad>{
   constructor(protected https:HttpClient) {
     super(https,urlConstants.unidad);
    }
-   CreateUnidad(request:RequestUnidad):Observable<ResponseUnidad>
+   /*CreateUnidad(request:RequestUnidad):Observable<ResponseUnidad>
    {
     let auth_token = sessionStorage.getItem("token");
     const jwtHeader = new HttpHeaders({
@@ -22,5 +22,5 @@ export class UnidadService extends CrudService<RequestUnidad,ResponseUnidad>{
       'Authorization': `Bearer ${auth_token}`
     })
     return this.https.post<ResponseUnidad>(urlConstants.unidad,request);
-   }
+   }*/
 }

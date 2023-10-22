@@ -11,7 +11,8 @@ import { MantProveedorRegisterComponent } from './proveedor/component/proveedor/
 import { SharedModule } from '../shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MantUnidadListComponent } from './Unidad/component/mant-unidad-list/mant-unidad-list.component';
-import { MantUnidadRegisteComponent } from './Unidad/component/mant-unidad-registe/mant-unidad-registe.component'
+import { MantUnidadRegisteComponent } from './Unidad/component/mant-unidad-registe/mant-unidad-registe.component';
+import { MantListMaterialComponent } from './Material/component/mant-list-material/mant-list-material.component'
 
 
 
@@ -20,7 +21,8 @@ import { MantUnidadRegisteComponent } from './Unidad/component/mant-unidad-regis
     MantProveedorListComponent,
     MantUnidadListComponent,
     MantUnidadRegisteComponent,
-    MantProveedorRegisterComponent
+    MantProveedorRegisterComponent,
+    MantListMaterialComponent
   ],
   imports: [
     CommonModule,
