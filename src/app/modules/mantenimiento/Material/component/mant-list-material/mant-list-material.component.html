@@ -1,7 +1,63 @@
-<form action="">
-    <div >
-        <select name="" id="" >
-            <option *ngFor="let m of material" value="{{m.idMaterial}}">{{m.nombreMaterial}}</option>
-        </select>
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">MANTENIMIENTO DE UNIDA</h1>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>IdMaterial</th>
+                        <th>NombreMaterial</th>
+                        <th>NombreUnidad</th>
+                        <th>Stock</th>
+                        <th>Description</th>
+                        <th>Marca</th>
+                        <th>Estado</th>
+                        <th>
+                            
+                            <button (click)="CrearMaterial(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                            
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                      
+                    <tr *ngFor="let m of material">
+                        <td>{{m.idMaterial}}</td>
+                        <td>{{m.nombreMaterial}}</td>
+                        <td>{{m.idUnidad}}</td>
+                        <td>{{m.stock}}</td>
+                        <td>{{m.descripcion}}</td>
+                        <!--x
+                        <td>
+                            <button (click)="EditarUnidad(modalEdit,u)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    -->
+                        <!--  
+                            <button (click)="eliminarRegistro(cargo.id)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                        -->
+                    </tr>
+                -
+                </tbody>
+            </table>
+        </div>
     </div>
-</form>
+</div>
+<ng-template #modalEdit>
+    <app-mant-material-registro
+        [title]="titleModal"
+        [material]="meterialSelect"
+        [acctionModal]="actionModal"
+        (closeModalEmmit)="GetCloseModalEmmit($event)"
+    >
+    </app-mant-material-registro>
+</ng-template>

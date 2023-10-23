@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {faHouse,faBasketShopping,faCartShopping,faShop,faRightFromBracket,
-        faSocks,faStore,faColumns,faPerson} 
+        faSocks,faStore,faColumns,faPerson, faLightbulb} 
 from "@fortawesome/free-solid-svg-icons";
 
 @Component({
@@ -18,6 +18,7 @@ export class TemplateSidebarComponent {
     faRightFromBracket: faRightFromBracket,
     faCartShopping: faCartShopping,
     faColumns:faColumns,
-    faPerson:faPerson
+    faPerson:faPerson,
+    faLightbulb: faLightbulb,
   }
 }
