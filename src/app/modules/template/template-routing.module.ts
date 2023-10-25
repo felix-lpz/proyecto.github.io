@@ -9,6 +9,9 @@ const routes: Routes = [
       {
         path: 'mantenimiento', loadChildren: ()=> import("./../mantenimiento/mantenimiento.module").
         then(x => x.MantenimientoModule)
+      },
+      {
+        path: 'produccion', loadChildren: ()=> import("./../produccion/produccion.module").then(x => x.ProduccionModule)
       }
     ]
   }
