@@ -30,7 +30,6 @@ export class ProdListAreaComponent implements OnInit {
     this.serviceArea.GetAll().subscribe({
       next:(data: ResponseArea[])=>{
         this.listArea = data;
-        MessageSucess();
       },
       error: (err)=>{
         MessageError();
