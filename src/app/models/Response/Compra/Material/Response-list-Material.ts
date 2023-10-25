@@ -1,4 +1,6 @@
-export class ResponseMaterial 
+import { ResponseVwMaterial } from "./Response-Vw-Material";
+
+export class ResponseListMaterial
 {
     idMaterial:number = 0; 
     nombreMaterial:string = "";

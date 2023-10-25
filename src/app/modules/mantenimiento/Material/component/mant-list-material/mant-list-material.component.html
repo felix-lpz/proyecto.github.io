@@ -16,28 +16,32 @@
                         <th>Marca</th>
                         <th>Estado</th>
                         <th>
-                            
                             <button (click)="CrearMaterial(modalEdit)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-plus"></i>
                             </button>
-                            
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                      
-                    <tr *ngFor="let m of material">
+                <tbody *ngFor="let r of responseMaterial">
+                    <tr *ngFor="let m of r.material">
                         <td>{{m.idMaterial}}</td>
                         <td>{{m.nombreMaterial}}</td>
-                        <td>{{m.idUnidad}}</td>
-                        <td>{{m.stock}}</td>
+                        <td>{{m.nombreUnidad}}</td>
+                        <td>{{m.stock}}</td>   
                         <td>{{m.descripcion}}</td>
-                        <!--x
+                        <td>{{m.marca}}</td>
+                        <td>{{m.estado}}</td>
                         <td>
-                            <button (click)="EditarUnidad(modalEdit,u)" class="btn btn-primary btn-sm">
+                            <button (click)="EditarMaterial(modalEdit,m)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
                             </button>
                         </td>
+                    </tr>
+                    
+                        
+                        
+                        <!--x
+                        
                     -->
                         <!--  
                             <button (click)="eliminarRegistro(cargo.id)" class="btn btn-danger btn-sm">
@@ -45,8 +49,7 @@
                             </button>
                         </td>
                         -->
-                    </tr>
-                -
+                    
                 </tbody>
             </table>
         </div>
@@ -56,6 +59,7 @@
     <app-mant-material-registro
         [title]="titleModal"
         [material]="meterialSelect"
+        [materialrespuesta]="material"
         [acctionModal]="actionModal"
         (closeModalEmmit)="GetCloseModalEmmit($event)"
     >
