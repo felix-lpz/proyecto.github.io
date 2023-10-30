@@ -20,3 +20,14 @@ export function ConvertToInt(input: string)
         return 0;
     }
 }
+export function ConvertToData(input: string)
+{
+    try
+    {
+        return JSON.parse(input.toLocaleLowerCase())
+    }
+    catch(e)
+    {
+        return 0;
+    }
+}

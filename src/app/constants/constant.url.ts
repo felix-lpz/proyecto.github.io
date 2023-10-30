@@ -1,6 +1,6 @@
 
 
-export const dominio = "https://localhost:5204/";
+export const dominio = "http://localhost:5204/";
 
 
 export const urlConstants = {
