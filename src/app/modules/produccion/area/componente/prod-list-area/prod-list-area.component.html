@@ -22,9 +22,9 @@
                 <tbody>
                       
                     <tr *ngFor="let a of listArea">
-                        <td>u.idUnida</td>
-                        <td>u.nombreUnidad</td>
-                        <td>u.descriccion</td>
+                        <td>{{a.idArea}}</td>
+                        <td>{{a.nombreArea}}</td>
+                        <td>{{a.descripcion}}</td>
                         
                         <td>
                             <button onclick="EditarArea(editModal,a)"  class="btn btn-primary btn-sm">

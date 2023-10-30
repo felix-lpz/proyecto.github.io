@@ -1,6 +1,6 @@
 
 
-export const dominio = "https://localhost:7287/";
+export const dominio = "https://localhost:5204/";
 
 
 export const urlConstants = {
@@ -8,5 +8,6 @@ export const urlConstants = {
     provedor: dominio + "api/Proveedor",
     unidad: dominio + "api/Unidad",
     material: dominio + "api/Material",
-    area: dominio + "api/Area"
+    area: dominio + "api/Area",
+    cliente: dominio + "api/Cliente"
 }
