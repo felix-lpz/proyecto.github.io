@@ -9,3 +9,14 @@ export function ConvertToBoolean(input: string)
         return false;
     }
 }
+export function ConvertToInt(input: string)
+{
+    try
+    {
+        return JSON.parse(input.toLocaleLowerCase())
+    }
+    catch(e)
+    {
+        return 0;
+    }
+}

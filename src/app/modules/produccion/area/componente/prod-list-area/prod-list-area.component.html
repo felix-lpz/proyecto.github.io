@@ -1,7 +1,7 @@
 <div class="container-fluid px-4 mt-5">
     <div class="card bg-light mb-3">
         <div class="card-header text-center">
-            <h1 class="mt-4">MANTENIMIENTO DE UNIDA</h1>
+            <h1 class="mt-4">PRODUCCION AREA</h1>
         </div>
         <div class="card-body">
 
@@ -27,7 +27,7 @@
                         <td>{{a.descripcion}}</td>
                         
                         <td>
-                            <button onclick="EditarArea(editModal,a)"  class="btn btn-primary btn-sm">
+                            <button (click)="EditarArea(editModal,a)"  class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
                             </button>
                         </td>
@@ -38,7 +38,6 @@
                         </td>
                         -->
                     </tr>
-                -
                 </tbody>
             </table>
         </div>

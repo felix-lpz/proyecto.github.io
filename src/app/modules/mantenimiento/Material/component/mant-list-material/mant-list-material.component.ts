@@ -1,8 +1,9 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import{ BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MaterialService } from "../../service/material.service";
-import { ResponseMaterial } from 'src/app/models/Response/Compra/Response-Material';
+import { ResponseMaterial } from 'src/app/models/Response/Compra/Material/Response-Material';
 import { AccionMantConst } from 'src/app/constants/general_constant';
+import { ResponseVwMaterial } from 'src/app/models/Response/Compra/Material/Response-Vw-Material';
 
 @Component({
   selector: 'app-mant-list-material',
@@ -12,8 +13,10 @@ import { AccionMantConst } from 'src/app/constants/general_constant';
 export class MantListMaterialComponent implements OnInit {
   //*Declaracion de variables
   titleModal:string = "";
-  material: ResponseMaterial[] = [];
-  meterialSelect: ResponseMaterial = new ResponseMaterial();
+  responseMaterial: ResponseMaterial[] = [];
+  material: ResponseMaterial = new ResponseMaterial();
+  responseVwMaterial:ResponseVwMaterial =new ResponseVwMaterial();
+  meterialSelect: ResponseVwMaterial = new ResponseVwMaterial();
   actionModal:number = 0;
 
   //*Declaraciones de variables del modal
@@ -32,10 +35,10 @@ export class MantListMaterialComponent implements OnInit {
   //*Metodos de Material
   ListaMaterial()
   {
-    debugger;
-    this.materilService.GetAll().subscribe({
+    this.materilService.MostrarMaterial().subscribe({
       next: (data:ResponseMaterial[])=>{
-        this.material = data;
+        this.responseMaterial = data;
+        console.log(this.responseMaterial);
       },
       error:(errr)=>
       {
@@ -47,12 +50,12 @@ export class MantListMaterialComponent implements OnInit {
   }
   CrearMaterial(template: TemplateRef<any>)
   {
-    this.meterialSelect = new ResponseMaterial();
+    this.meterialSelect = new ResponseVwMaterial();
     this.titleModal = "Registre el material";
     this.actionModal = AccionMantConst.crear;
     this.OpenModal(template);
   }
-  EditarMaterial(template: TemplateRef<any>, material:ResponseMaterial)
+  EditarMaterial(template: TemplateRef<any>, material:ResponseVwMaterial)
   {
     this.meterialSelect = material;
     this.titleModal = "Actualiza el material";

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccionMantConst } from 'src/app/constants/general_constant';
 import { ResponseArea } from 'src/app/models/Response/Produccion/Response-Area';
 import { RequestArea } from 'src/app/modules/models/produccion/Request-Area';
@@ -23,7 +23,9 @@ export class ProdRegistroAreaComponent implements OnInit {
    constructor(private fb:FormBuilder,
               private serviceArea: AreaService){
     this.myForm = this.fb.group({
-
+      idArea:[{value:0, disabled:true},[Validators.required]],
+      nombreArea:[null,[Validators.required]],
+      descripcion:[null,[Validators.required]]
     })
    }
   ngOnInit(): void {
