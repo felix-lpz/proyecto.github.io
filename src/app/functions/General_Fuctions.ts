@@ -13,18 +13,18 @@ export function ConvertToInt(input: string)
 {
     try
     {
-        return JSON.parse(input.toLocaleLowerCase())
+        return Number.parseInt(input.toLowerCase()).toString()
     }
     catch(e)
     {
         return 0;
     }
 }
-export function ConvertToData(input: string)
+export function ConvertToDecimal(input: string)
 {
     try
     {
-        return JSON.parse(input.toLocaleLowerCase())
+        return Number.parseFloat(input.toLocaleLowerCase());
     }
     catch(e)
     {

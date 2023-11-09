@@ -35,6 +35,7 @@ export class LoginComponent {
             this.router.navigate(["dashboard"]);
             MessageAlert();
             sessionStorage.setItem("token",data.token);
+            sessionStorage.setItem("namerol",data.vWUsuario.nombreRol);
           }
           else{
             return;
