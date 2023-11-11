@@ -7,9 +7,10 @@ import { NotFoundComponent } from './page/not-found/not-found.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WelcomeComponent } from './page/welcome/welcome.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 import {BsModalRef,BsModalService} from "ngx-bootstrap/modal"
+import { AuthInterceptor } from './service/auth.interceptor';
 
 
 @NgModule({
@@ -26,7 +27,9 @@ import {BsModalRef,BsModalService} from "ngx-bootstrap/modal"
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [BsModalRef,BsModalService],
+  providers: [BsModalRef,BsModalService,{
+    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
