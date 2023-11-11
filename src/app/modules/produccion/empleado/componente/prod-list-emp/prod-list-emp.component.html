@@ -1,0 +1,63 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">PRODUCCION AREA</h1>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>IdEmpleado</th>
+                        <th>Nombre + Apellido</th>
+                        <th>Tipo Documento</th>
+                        <th>Numero Documento</th>
+                        <th>Telefono</th>
+                        <th>Direccion</th>
+                        <th>Salario</th>
+                        <th>Estado</th>
+                        <th>
+                            
+                            <button (click)="CreateEmpleado(editModal)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let list of responseEmpleado">
+                      
+                    <tr *ngFor="let e of list.empleado">
+                        <td>{{e.idEmpleado}}</td>
+                        <td>{{e.nombrePersona + " " + e.apellidoEmp}}</td>
+                        <td>{{e.tipoDocumento}}</td>
+                        <td>{{e.numeroDocumento}}</td>
+                        <td>{{e.telefono}}</td>
+                        <td>{{e.direccion}}</td>
+                        <td>{{e.salario}}</td>
+                        <td>{{e.estado}}</td>
+                        <td>
+                            <button (click)="EditarEmpleado(editModal,e)"  class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                        <!--  
+                            <button (click)="eliminarRegistro(cargo.id)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                        -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #editModal>
+    <app-prod-reg-emp
+    [title]="titleModal"
+    [actionModal]="actionModal"
+    [responseEmpleado]="response"
+    [responseVwEmpleado]="responseVWEmpleado"
+    (closeModalEmmit) = "GetCloseModalEmmit($event)"
+    ></app-prod-reg-emp>
+</ng-template>

@@ -27,9 +27,10 @@ import { AuthInterceptor } from './service/auth.interceptor';
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [BsModalRef,BsModalService,{
-    provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true
-  }],
+  providers: [
+    BsModalRef,BsModalService,{
+      provide: HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

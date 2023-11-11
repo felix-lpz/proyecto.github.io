@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './page/welcome/welcome.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
 import { authGuard } from './guard/auth.guard';
+import { authGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   //* Ruteo Simple
