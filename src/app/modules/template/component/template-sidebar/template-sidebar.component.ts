@@ -33,7 +33,7 @@ export class TemplateSidebarComponent implements OnInit {
 
   RellenarMenu()
   {
-    let rolname = "Administrador";
+    let rolname = "JefeProduccion";
     switch(rolname)
     {
       case "Administrador":
@@ -72,6 +72,11 @@ export class TemplateSidebarComponent implements OnInit {
                 name: "Area",
                 url: "",
                 icon: this.icon.faLightbulb
+              },
+              {
+                name: "Empleado",
+                url:"produccion/empleado",
+                icon: this.icon.faPerson
               }
             ]
           },
@@ -117,6 +122,56 @@ export class TemplateSidebarComponent implements OnInit {
           }
         ]
         break;
+        case "Vendedor":
+          this.menu =
+          [
+            {
+              name: "Mantenimiento",
+              target: "TargetManteinimiento",
+              icon : this.icon.faColumns,
+              submenu:[
+                  {
+                    name: "Material",
+                    url: "mantenimiento/material",
+                    icon: this.icon.faStore
+                  },
+                  {
+                    name: "Proveedor",
+                    url: "mantenimiento/proveedor",
+                    icon:this.icon.faPerson
+                  },
+                  {
+                    name: "Unidad",
+                    url: "mantenimiento/unidad",
+                    icon: this.icon.faLightbulb
+                  }
+                ]
+            }
+          ]
+          break;
+        case "JefeProduccion":
+          this.menu =
+          [
+            {
+              name: "Produccion",
+              target: "TargetProduccion",
+              icon : "fa",
+              submenu:
+              [
+                {
+                  name: "Area",
+                  url: "",
+                  icon: this.icon.faLightbulb
+                },
+                {
+                  name: "Empleado",
+                  url:"produccion/empleado",
+                  icon: this.icon.faPerson
+                }
+              ]
+            }
+          ]
+          break;
     }
   }
 }

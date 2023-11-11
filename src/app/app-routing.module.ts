@@ -19,7 +19,7 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    canActivate: [authGuard] ,
+    //canActivate: [authGuard] ,
     loadChildren:() => import("./modules/template/template.module").
     then(x => x.TemplateModule)
   }
