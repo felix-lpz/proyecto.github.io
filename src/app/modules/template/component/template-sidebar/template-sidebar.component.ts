@@ -33,7 +33,7 @@ export class TemplateSidebarComponent implements OnInit {
 
   RellenarMenu()
   {
-    let rolname = "JefeProduccion";
+    let rolname = "Administrador";
     switch(rolname)
     {
       case "Administrador":
@@ -65,12 +65,12 @@ export class TemplateSidebarComponent implements OnInit {
           {
             name: "Produccion",
             target: "TargetProduccion",
-            icon : "fa",
+            icon : this.icon.faColumns,
             submenu:
             [
               {
                 name: "Area",
-                url: "",
+                url: "produccion/area",
                 icon: this.icon.faLightbulb
               },
               {
@@ -83,13 +83,23 @@ export class TemplateSidebarComponent implements OnInit {
           {
             name: "Venta",
             target: "TargetVenta",
-            icon : "fa",
+            icon : this.icon.faColumns,
             submenu:
             [
               {
                 name: "Cliente",
-                url: "",
-                icon: ""
+                url: "ventas/cliente",
+                icon: this.icon.faPerson
+              },
+              {
+                name: "Producto",
+                url : "ventas/producto",
+                icon: this.icon.faCartShopping
+              },
+              {
+                name: "Trasporte",
+                url: "ventas/trasporte",
+                icon: this.icon.faSocks
               }
             ]
           }
@@ -146,6 +156,29 @@ export class TemplateSidebarComponent implements OnInit {
                     icon: this.icon.faLightbulb
                   }
                 ]
+            },
+            {
+              name: "Venta",
+              target: "TargetVenta",
+              icon : this.icon.faColumns,
+              submenu:
+              [
+                {
+                  name: "Cliente",
+                  url: "ventas/cliente",
+                  icon: this.icon.faPerson
+                },
+                {
+                  name: "Producto",
+                  url : "ventas/producto",
+                  icon: this.icon.faCartShopping
+                },
+                {
+                  name: "Trasporte",
+                  url: "ventas/trasporte",
+                  icon: this.icon.faSocks
+                }
+              ]
             }
           ]
           break;

@@ -16,27 +16,26 @@
             </div>
 
             <div class="row">
-                <div class="col-12 mt-3">
-                    <div class="form-group">
-                        <label for="tipoDoc">Tipo Documento</label>
-                        <select name="" id="tipoDoc" formControlName="tipoDocumento" class="form-select">
-                            <option value="dni">Dni</option>
-                            <option value="ruc">Ruc</option>
-                        </select>
-                    </div>
-                </div>
-    
                 <div class="col-10 mt-3">
                     <div class="form-control">
                         <label for="ndoc">Numero Documento</label>
                         <input type="text" formControlName="numeroDocumento" id="ndoc" class="form-control">
                     </div>
-                    
                 </div>
                 <div class="col-2 mt-5">
                     <div class="d-grid gap-2">
                         <button class="btn-block btn btn-primary btn-sm" (click)="BuscarDocumento()"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="tipoDoc">Tipo Documento</label>
+                    <select name="" id="tipoDoc" formControlName="tipoDocumento" class="form-select">
+                        <option value="dni">Dni</option>
+                        <option value="ruc">Ruc</option>
+                    </select>
                 </div>
             </div>
 

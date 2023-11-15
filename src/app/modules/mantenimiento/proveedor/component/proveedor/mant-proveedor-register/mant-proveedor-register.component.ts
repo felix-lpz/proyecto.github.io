@@ -5,6 +5,7 @@ import { RequestProveedor } from '../../../../models/Compra/Request_Proveedor';
 import { ProveedorService } from "../../../service/proveedor.service";
 import { AccionMantConst } from 'src/app/constants/general_constant';
 import { ResponseVWProvedor } from 'src/app/models/Response/Compra/Response_VW_Provedor';
+import { VWProvedor } from 'src/app/models/Response/Compra/TB_Proveedor/Vw-Proveedor';
 
 @Component({
   selector: 'app-mant-proveedor-register',
@@ -20,6 +21,8 @@ export class MantProveedorRegisterComponent implements OnInit {
 
   myForm: FormGroup;
   proveedorEnvio: RequestProveedor = new RequestProveedor();
+  doc: string = "";
+  num: string = "";
 
   constructor(private fb: FormBuilder,
              private proveedorService:ProveedorService )
@@ -27,9 +30,9 @@ export class MantProveedorRegisterComponent implements OnInit {
     this.myForm = this.fb.group(
       {
         idProvedor: [{ value: 0, disabled: true }, [Validators.required]],
-        nombrePersona: [null, [Validators.required]],
-        tipoPersona: [null, [Validators.required]],
-        tipoDocumento: [null, [Validators.required]],
+        nombrePersona: [{value:"",disabled:true}, [Validators.required]],
+        tipoPersona: [{value:"",disabled:true}, [Validators.required]],
+        tipoDocumento: [{value:"",disabled:true}, [Validators.required]],
         numerodocumento: [null, [Validators.required]],
         telefono: [null, [Validators.required]],
         codigoUbigeo: [null,[Validators.required]],
@@ -45,6 +48,44 @@ export class MantProveedorRegisterComponent implements OnInit {
 
   }
 
+  BuscarDocumento()
+  {
+    debugger;
+    this.num = this.myForm.getRawValue().numerodocumento;
+    console.log(this.num.length) 
+    switch(this.num.length)
+    {
+      case 8:
+        this.doc = "dni"
+        this.proveedorService.GetWithDNI(this.doc, this.num).subscribe({
+        next:(data: VWProvedor)=>{
+          data.idProvedor = 0;
+          data.tipoDocumento = this.doc;
+          data.tipoPersona = "Natural";
+          data.nombrePersona != ""? this.myForm.patchValue(data): alert("No se  encontro el usuario");
+        },
+        error:()=>{},
+        complete:()=>{}
+      })
+        break;
+      case 11:
+        this.doc = "ruc"
+        this.proveedorService.GetWithDNI(this.doc, this.num).subscribe({
+        next:(data: VWProvedor)=>{
+          data.idProvedor = 0;
+          data.tipoDocumento = this.doc;
+          data.tipoPersona = "Juridica";
+          data.nombrePersona != ""? this.myForm.patchValue(data): alert("No se  encontro el usuario");
+        },
+        error:()=>{},
+        complete:()=>{}
+        })
+        break;
+      default:
+        alert("No se en Encontro el usuaro");
+        break;
+    }
+  }
   Guardar()
   {
     debugger;

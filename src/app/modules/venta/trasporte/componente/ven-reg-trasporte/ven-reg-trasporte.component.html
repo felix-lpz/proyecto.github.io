@@ -1,0 +1,135 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{title}}</h4>
+    <!-- (click)="modalRef?.hide()" -->
+    <button (click)="CloseModal(true)" type="button" class="btn-close close pull-right" aria-label="Close">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="myForm">
+        <div class="row">
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Id Trasporte</label>
+                    <input formControlName="idTrasporte" type="text" class="form-control" placeholder="Ingrese el Identificador">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-10 mt-3">
+                    <div class="form-group">
+                        <label for="">Numero Documeto</label>
+                        <input formControlName="numeroDocumento" type="text" class="form-control"
+                            placeholder="Ingrese el numero de documento">
+                    </div>
+                </div>
+                <div class="col-2 mt-5">
+                    <button class="btn-block btn btn-primary btn-sm" (click)="BuscarDocumento()"><i class="fa-solid fa-search"></i></button>
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Nombre Trasportista</label>
+                    <input formControlName="nombrePersona" type="text" class="form-control" placeholder="Ingrese su Nombre">
+                </div>
+                <!--
+                <div *ngIf="myForm.get('codigo')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('codigo')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+                -->
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Tipo Persona</label>
+                    <select formControlName="tipoPersona" class="form-select">
+                        <option value="juridica">Juridica</option>
+                        <option value="natural">Natural</option>
+                    </select>
+                </div>
+                <!--
+                <div *ngIf="myForm.get('nombre')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('nombre')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+                -->
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Tipo Documento</label>
+                    <select formControlName="tipoDocumento" class="form-select">
+                        <option value="dni" selected>Dni</option>
+                        <option value="ruc">Ruc</option>
+                    </select>
+                </div>
+            </div>
+
+            
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Numero Telefono</label>
+                    <input formControlName="telefono" type="text" class="form-control"
+                        placeholder="Ingrese el numero de Telefono">
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Codigo Ubigeo</label>
+                    <input formControlName="codigoUbigeo" type="text" class="form-control"
+                        placeholder="Ingrese el codigo ubigeo">
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Dirección</label>
+                    <input formControlName="direccion" type="text" class="form-control"
+                        placeholder="Ingrese su dirección">
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Numero de Placa de Auto</label>
+                    <input formControlName="numeroPlaca" type="text" class="form-control"
+                        placeholder="Ingrese su fecha de nacimiento">
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Licencia del conducto</label>
+                    <input formControlName="licenciaConductor" type="text" class="form-control"
+                        placeholder="Ingrese su fecha de nacimiento">
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Tipo de tipoAutomovil</label>
+                    <input formControlName="tipoAutomovil" type="text" class="form-control"
+                        placeholder="Ingrese su fecha de nacimiento">
+                </div>
+            </div>
+            
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button [disabled]="myForm.invalid" (click)="Guardar()"
+                        class="btn-block btn btn-primary btn-sm">GUARDAR</button>
+                </div>
+            </div>
+
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button class="btn-block btn btn-danger btn-sm" (click)="CloseModal(true)">CANCELAR</button>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+
+</div>

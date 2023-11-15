@@ -12,6 +12,10 @@ import { AccionMantConst } from 'src/app/constants/general_constant';
   styleUrls: ['./prod-list-emp.component.scss']
 })
 export class ProdListEmpComponent implements OnInit {
+  config = {
+    backdrop: true,
+    ignoreBackdropClick: true
+  }
   //*Declaracion de variables
   bsModalRef?:BsModalRef;
   titleModal: string = "";
@@ -53,7 +57,8 @@ export class ProdListEmpComponent implements OnInit {
   }
   //*Metodos del modal
   OpenModal(template: TemplateRef<any>){
-    this.bsModalRef = this.servicebsModal.show(template)
+    this.bsModalRef = this.servicebsModal.show(template,
+      Object.assign({},{class:"gray modal-md"},this.config))
   }
   GetCloseModalEmmit(res: boolean){
     this.bsModalRef?.hide();

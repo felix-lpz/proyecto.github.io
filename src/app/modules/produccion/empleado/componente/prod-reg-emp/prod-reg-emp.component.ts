@@ -35,10 +35,10 @@ export class ProdRegEmpComponent implements OnInit {
  constructor(private fb: FormBuilder,private empleadoService:EmpleadoService){
   this.myForm = fb.group({
     idEmpleado:[{value:0,disabled:true},[Validators.required]],
-    nombrePersona:[null,[Validators.required]], 
-    apellidoEmp:[null,[Validators.required]], 
-    tipoPersona:[null,[Validators.required]], 
-    tipoDocumento:[null,[Validators.required]], 
+    nombrePersona:[{value:"",disabled:true},[Validators.required]], 
+    apellidoEmp:[{value: "",disabled:true},[Validators.required]], 
+    tipoPersona:[{value:"",disabled:true},[Validators.required]], 
+    tipoDocumento:[{value:"",disabled:true},[Validators.required]], 
     numeroDocumento:[null,[Validators.required]], 
     telefono:[null,[Validators.required]], 
     codigoUbigeo:[null,[Validators.required]], 
@@ -95,23 +95,42 @@ export class ProdRegEmpComponent implements OnInit {
  }
 
  BuscarDocumento(){
-  this.doc = this.myForm.getRawValue().tipoDocumento;
   this.num = this.myForm.getRawValue().numeroDocumento;
-  this.empleadoService.GetWithDNI(this.doc,this.num).subscribe({
-    next:(data: VwEmpleado)=>{
-      if(data.nombrePersona != "")
-      {
-        data.tipoDocumento = this.doc
-        this.myForm.patchValue(data)
-      }
-      else
-      {
-        console.log("no existe documento");
-      }
-    },
-    error:()=>{},
-    complete:()=>{}
-  });
+  console.log(this.myForm.getRawValue());
+  switch(this.num.length)
+  {
+    case 8:
+      this.doc = "dni"
+      this.empleadoService.GetWithDNI(this.doc, this.num).subscribe({
+      next:(data: VwEmpleado)=>{
+        data.idEmpleado = 0;
+        data.tipoDocumento = this.doc;
+        data.tipoPersona = "natural";
+        data.estado = true;
+        data.nombrePersona != ""? this.myForm.patchValue(data): alert("No se  encontro el usuario");
+      },
+      error:()=>{},
+      complete:()=>{}
+    })
+      break;
+    case 11:
+      this.doc = "ruc"
+      this.empleadoService.GetWithDNI(this.doc, this.num).subscribe({
+      next:(data: VwEmpleado)=>{
+        data.idEmpleado = 0;
+        data.tipoDocumento = this.doc;
+        data.tipoPersona = "juridica";
+        data.estado = true;
+        data.nombrePersona != ""? this.myForm.patchValue(data): alert("No se  encontro el usuario");
+      },
+      error:()=>{},
+      complete:()=>{}
+      })
+      break;
+    default:
+      alert("No se en Encontro el usuaro");
+      break;
+  }
  }
  //* Métodos del modal
  cerrarModal(res: boolean){

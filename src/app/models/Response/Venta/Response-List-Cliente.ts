@@ -8,5 +8,5 @@ export class ResponseListCliente {
     codigoUbigeo: string | null = "";
     direccion: string | null = "";
     fechaNacimiento: string | null = "";
-    estado: boolean = false;
+    estado: boolean = true;
 }

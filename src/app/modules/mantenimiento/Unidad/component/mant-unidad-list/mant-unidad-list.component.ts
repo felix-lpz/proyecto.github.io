@@ -10,6 +10,10 @@ import { AccionMantConst } from 'src/app/constants/general_constant';
   styleUrls: ['./mant-unidad-list.component.scss']
 })
 export class MantUnidadListComponent implements OnInit {
+  config = {
+    backdrop: true,
+    ignoreBackdropClick: true
+  }
   modalRef?: BsModalRef;
   titleModal:string = "";
   actionModal:number = 0;
@@ -57,7 +61,7 @@ export class MantUnidadListComponent implements OnInit {
 
   OpenModal(template:TemplateRef<any>)
   {
-    this.modalRef = this.modaService.show(template);
+    this.modalRef = this.modaService.show(template,Object.assign({},{class:"gray modal-md"},this.config));
   }
   GetCloseModalEmmit(res:boolean)
   {

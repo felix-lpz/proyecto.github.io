@@ -1,7 +1,7 @@
 <div class="container-fluid px-4 mt-5">
     <div class="card bg-light mb-3">
         <div class="card-header text-center">
-            <h1 class="mt-4">MANTENIMIENTO DE CARGOS</h1>
+            <h1 class="mt-4">MANTENIMIENTO DE PROVEEDOR</h1>
         </div>
         <div class="card-body">
 
@@ -17,7 +17,6 @@
                         <th>Codigo Ubigeo</th>
                         <th>Direccion</th>
                         <th>
-                            
                             <button (click)="CrearProveedor(modalEdit)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-plus"></i>
                             </button>
@@ -43,14 +42,7 @@
                             <button (click)="EditarProveedor(modalEdit,provedor)" class="btn btn-primary btn-sm">
                                 <i class="fas fa-edit"></i>
                             </button>
-                            <!--
-                            <button (click)="eliminarRegistro(cargo.id)" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </td>
-                        -->
                     </tr>
-                
                 </tbody>
             </table>
             <div>
@@ -59,7 +51,6 @@
                 nextLabel="Next"
                 (pageChange)="OnTableDataChange($event)"
                 >
-
                 </pagination-controls>
             </div>
         </div>

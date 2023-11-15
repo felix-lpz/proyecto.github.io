@@ -10,11 +10,9 @@
                     <tr>
                         <th>IdCliente</th>
                         <th>NombrePersona</th>
-                        <th>TipoPersona</th>
                         <th>TipoDocumento</th>
                         <th>Numero Documento</th>
                         <th>Numero Telefono</th>
-                        <th>Codigo Ubigeo</th>
                         <th>Direccion</th>
                         <th>FechaNacimiento</th>
                         <th>Estado</th>
@@ -31,13 +29,11 @@
                     <tr *ngFor=" let cliente of c.cliente">
                         <td>{{cliente.idCliente}}</td>
                         <td>{{cliente.nombrePersona}}</td>
-                        <td>{{cliente.tipoPersona}}</td>
                         <td>{{cliente.tipoDocumento}}</td>
                         <td>{{cliente.numeroDocumento}}</td>
                         <td>{{cliente.telefono}}</td>
-                        <td>{{cliente.codigoUbigeo}}</td>
                         <td>{{cliente.direccion}}</td>
-                        <td>{{cliente.fechaNacimiento}}</td>
+                        <td>{{cliente.fechaNacimiento | date: 'dd-MM-YYYY'}}</td>
                         <td>{{cliente.estado}}</td>
                         <td>
                             <button (click)="EditarCliente(modalEdit,cliente)" class="btn btn-primary btn-sm">

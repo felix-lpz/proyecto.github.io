@@ -13,6 +13,11 @@ import { ResponseVWProvedor } from 'src/app/models/Response/Compra/Response_VW_P
   styleUrls: ['./mant-proveedor-list.component.scss']
 })
 export class MantProveedorListComponent implements OnInit {
+  //* Configuracion Modal
+  config = {
+    backdrop: true,
+    ignoreBackdropClick: true
+  }
   modalRef?: BsModalRef;
   proveedor: ResponseProvedor[] = [];
   vwproveedor: ResponseVWProvedor[] = [];
@@ -79,21 +84,21 @@ export class MantProveedorListComponent implements OnInit {
   CrearProveedor(template: TemplateRef<any>)
   {
     this.proveedorSelect = new ResponseVWProvedor();
-    this.titleModal = "Nuevo Cargo",
+    this.titleModal = "Nuevo Proveedor",
     this.actionModal = AccionMantConst.crear;
     this.OpenModal(template);
   }
   EditarProveedor(template: TemplateRef<any>,provedor: ResponseVWProvedor)
   {
     this.proveedorSelect = provedor;
-    this.titleModal = "Editar Cargo";
+    this.titleModal = "Editar Proveedor";
     this.actionModal = AccionMantConst.editar;
     this.OpenModal(template);
   }
 
    OpenModal(template:TemplateRef<any>)
    {
-     this.modalRef = this.modalService.show(template);
+     this.modalRef = this.modalService.show(template,Object.assign({},{class:"gray modal-md"},this.config));
    }
    getCloseModalEmmit(res:boolean)
    {

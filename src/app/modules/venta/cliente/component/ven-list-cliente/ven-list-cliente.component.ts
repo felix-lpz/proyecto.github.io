@@ -13,7 +13,10 @@ import { AccionMantConst } from 'src/app/constants/general_constant';
   styleUrls: ['./ven-list-cliente.component.scss']
 })
 export class VenListClienteComponent implements OnInit{
-
+  config = {
+    backdrop: true,
+    ignoreBackdropClick: true
+  }
   //* Declaracion de variables
   modalRef?:BsModalRef;
   responseListCliente: ResponseListCliente[] = [];
@@ -54,7 +57,8 @@ export class VenListClienteComponent implements OnInit{
   }
   OpenModal(template:TemplateRef<any>)
    {
-     this.modalRef = this.modalService.show(template);
+     this.modalRef = this.modalService.show(template,
+      Object.assign({},{class:"gray modal-md"},this.config));
    }
    getCloseModalEmmit(res:boolean)
    {

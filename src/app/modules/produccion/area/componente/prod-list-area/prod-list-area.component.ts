@@ -11,6 +11,10 @@ import { MessageError, MessageSucess } from 'src/app/functions/Message_Fuctions'
   styleUrls: ['./prod-list-area.component.scss']
 })
 export class ProdListAreaComponent implements OnInit {
+  config = {
+    backdrop: true,
+    ignoreBackdropClick: true
+  }
   modalRef?: BsModalRef;
   titleModal:string = "";
   actionModal: number = 0;
@@ -51,7 +55,7 @@ export class ProdListAreaComponent implements OnInit {
   }
   //*Métodos del modal
   OpenModal(template: TemplateRef<any>){
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(template,Object.assign({},{class:"gray modal-md"},this.config));
   }
   GetCloseModalEmmit(res:boolean){
     this.modalRef?.hide();

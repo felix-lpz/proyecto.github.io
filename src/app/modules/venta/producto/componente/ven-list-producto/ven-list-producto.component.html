@@ -1,0 +1,51 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">LISTA DE PRODUCTOS</h1>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id Producto</th>
+                        <th>Nombre Producto</th>
+                        <th>Precio Unitario</th>
+                        <th>Unidad</th>
+                        <th>Stock</th>
+                        <th>Estado</th>
+                        <th>
+                            <button (click)="CreateProducto(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let producto of responseVWProducto">
+                    <tr *ngFor="let p of producto.producto">
+                        <td>{{p.idProducto}}</td>
+                        <td>{{p.nombreProd}}</td>
+                        <td>{{p.precioUnitario}}</td>
+                        <td>{{p.nombreUnidad}}</td>
+                        <td>{{p.stock}}</td>   
+                        <td>{{p.estadoProducto}}</td>
+                        <td>
+                            <button (click)="EditarProducto(modalEdit,p)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #modalEdit>
+    <app-ven-reg-producto
+    [titleModal]="titleModal"
+    [actionModal]="acctionModal"
+    [resVWProducto]="resVwProducto"
+    [listProducto]="listProducto"
+    (CloseModalEmmit)="GetCloseModalEmmit($event)"
+    ></app-ven-reg-producto>
+</ng-template>

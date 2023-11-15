@@ -16,6 +16,32 @@
                 </div>
             </div>
 
+            <div class="row form-group">
+                <div class="col-10 mt-3">
+                    <div class="form-group">
+                        <label for="">Numero Documeto</label>
+                        <input formControlName="numerodocumento" type="text" class="form-control"
+                            placeholder="Ingrese el numero de documento">
+                    </div>
+                </div>
+                <div class="col-2 mt-5">
+                    <div class="d-grid gap-2">
+                        <button class="btn-block btn btn-primary btn-sm" (click)="BuscarDocumento()"><i class="fa-solid fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="">Tipo Documento</label>
+                    <select formControlName="tipoDocumento" class="form-select">
+                        <option value="dni" selected>Dni</option>
+                        <option value="ruc">Ruc</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="col-12 mt-3">
                 <div class="form-group">
                     <label for="">NombrePersona</label>
@@ -43,25 +69,7 @@
                 </div>
                 -->
             </div>
-
-            <div class="col-12 mt-3">
-                <div class="form-group">
-                    <label for="">Tipo Documento</label>
-                    <select formControlName="tipoDocumento" class="form-select">
-                        <option value="Dni" selected>Dni</option>
-                        <option value="Ruc">Ruc</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="col-12 mt-3">
-                <div class="form-group">
-                    <label for="">Numero Documeto</label>
-                    <input formControlName="numerodocumento" type="text" class="form-control"
-                        placeholder="Ingrese el numero de documento">
-                </div>
-            </div>
-
+            
             <div class="col-12 mt-3">
                 <div class="form-group">
                     <label for="">Numero Telefono</label>
@@ -96,7 +104,6 @@
                 <div class="d-grid gap-2">
                     <button class="btn-block btn btn-danger btn-sm" (click)="cerrarModal(true)">CANCELAR</button>
                 </div>
-
             </div>
 
         </div>

@@ -1,0 +1,97 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{titleModal}}</h4>
+    <!-- (click)="modalRef?.hide()" -->
+    <button (click)="CerrarModal(true)" type="button" class="btn-close close pull-right" aria-label="Close">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="myForm">
+        <div class="row">
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="idProducto">Id Producto</label>
+                    <input formControlName="idProducto" id="idProducto" type="text" class="form-control" placeholder="Ingrese el Identificador">
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="nomProducto">Nombre Producto</label>
+                    <input formControlName="nombreProd" id="nomProducto" type="text" class="form-control" placeholder="Ingrese el código">
+                </div>
+                <!--
+                <div *ngIf="myForm.get('codigo')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('codigo')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+                -->
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="codigo">Codigo Produccto</label>
+                    <input type="text" id="codigo" class="form-control" formControlName="codigoProd">
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="precio">Ingrese el precio</label>
+                    <input type="number" class="form-control" id="precio" formControlName="precioUnitario">
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group" >
+                    <label for="nomUnidad">Nombre Unidad</label>
+                    <select name="" id="nomUnidad" formControlName="nombreUnidad" class="form-select">
+                        <option value="1">1</option>
+                    </select>
+                </div>
+                <!--
+                <div *ngIf="myForm.get('nombre')?.errors &&  myForm.touched ">
+                    <small class="text-danger" *ngIf="myForm.get('nombre')?.hasError('required')"> Campo requerido
+                    </small>
+                </div>
+                -->
+            </div>
+            <div class="col-md-12 mt-3">
+                <div class="form-group">
+                    <label for="stock">stock</label>
+                    <input formControlName="stock" id="stock" class="form-control" type="number">
+                </div>
+            </div>
+
+            <div class="col-md-12 mt-3">
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select formControlName="estadoProducto" name="" id="estado" class="form-select">
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-12 mt-3">
+                <div class="form-group">
+                    <label for="prod">Ingresar su Imagen</label>
+                    <input type="file" id="prod"class="form-control" formControlName="fotografia">
+                </div>
+            </div>
+
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button [disabled]="myForm.invalid" (click)="Guardar()"
+                        class="btn-block btn btn-primary btn-sm">GUARDAR</button>
+                </div>
+            </div>
+            <div class="col-6 mt-3">
+                <div class="d-grid gap-2">
+                    <button class="btn-block btn btn-danger btn-sm" (click)="CerrarModal(true)">CANCELAR</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

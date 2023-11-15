@@ -18,6 +18,7 @@ export class MantMaterialRegistroComponent implements OnInit {
   @Input() acctionModal:number = 0;
   @Input() material: ResponseVwMaterial = new ResponseVwMaterial();
   @Input() materialrespuesta: ResponseMaterial = new ResponseMaterial();
+  @Input() listarUnidad: ResponseUnidad [] = [];
   @Output() closeModalEmmit = new EventEmitter<boolean>();
 
   myForm:FormGroup;

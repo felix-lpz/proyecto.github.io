@@ -1,4 +1,4 @@
 export class RequestLogin{
-    Usuario: string =""
-    Password: string=""
+    usuario: string =""
+    password: string=""
 }

@@ -1,7 +1,7 @@
 <div class="container-fluid px-4 mt-5">
     <div class="card bg-light mb-3">
         <div class="card-header text-center">
-            <h1 class="mt-4">MANTENIMIENTO DE UNIDA</h1>
+            <h1 class="mt-4">MANTENIMIENTO DE MATERIAL</h1>
         </div>
         <div class="card-body">
 
@@ -37,19 +37,6 @@
                             </button>
                         </td>
                     </tr>
-                    
-                        
-                        
-                        <!--x
-                        
-                    -->
-                        <!--  
-                            <button (click)="eliminarRegistro(cargo.id)" class="btn btn-danger btn-sm">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </td>
-                        -->
-                    
                 </tbody>
             </table>
         </div>
@@ -61,6 +48,7 @@
         [material]="meterialSelect"
         [materialrespuesta]="material"
         [acctionModal]="actionModal"
+        [listarUnidad] = "unidadList"
         (closeModalEmmit)="GetCloseModalEmmit($event)"
     >
     </app-mant-material-registro>

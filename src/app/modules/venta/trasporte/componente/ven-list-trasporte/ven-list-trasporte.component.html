@@ -1,0 +1,57 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">LISTA TRASPORTES</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id Trasporte</th>
+                        <th>Nombre Trasportista</th>
+                        <th>Tipo Documento</th>
+                        <th>Numero Documento</th>
+                        <th>Telefono</th>
+                        <th>Direccion</th>
+                        <th>Tipo Automovil</th>
+                        <th>
+                            <button (click)="CreateTrasporte(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let trasporte of responseVWTrasporte">
+                    <tr *ngFor="let t of trasporte.trasporte">
+                        <td>{{t.idTrasporte}}</td>
+                        <td>{{t.nombrePersona}}</td>
+                        <td>{{t.tipoDocumento}}</td>
+                        <td>{{t.numeroDocumento}}</td>
+                        <td>{{t.telefono}}</td>
+                        <td>{{t.direccion}}</td>
+                        <td>{{t.tipoAutomovil}}</td>
+                        <td>
+                            <button (click)="EditarTrasporte(modalEdit,t)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <!--
+                            <button (click)="eliminarRegistro(cargo.id)" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                        -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #modalEdit>
+    <app-ven-reg-trasporte
+    [title]="titleModal"
+    [actionModal]="actionModal"
+    [resTrasporte]="resTrasporte"
+    [listTrasporte]="listTrasporte"
+    (CloseModalEmmit)="GetCloseModalEmmit($event)"
+    ></app-ven-reg-trasporte>
+</ng-template>
