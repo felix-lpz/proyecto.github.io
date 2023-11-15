@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { InterfaceCrud } from '../interface/Interface_Crud';
 import { Observable } from 'rxjs';
@@ -14,12 +14,16 @@ export class CrudService<T,Y> implements InterfaceCrud<T,Y> {
 
   }
   GetAll(): Observable<Y[]> {
+    let auth_token = sessionStorage.getItem("token");
     return this.http.get<Y[]>(this.url_service);
   }
   Create(requets: T): Observable<Y> {
+    let auth_token = sessionStorage.getItem("token");
+
     return this.http.post<Y>(this.url_service,requets);
   }
   Update(request: T): Observable<Y> {
+    let auth_token = sessionStorage.getItem("token");
     return this.http.put<Y>(this.url_service,request);
   }
   Delete(id: number): Observable<number> {

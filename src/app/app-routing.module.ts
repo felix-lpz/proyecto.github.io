@@ -19,14 +19,14 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    //canActivate: [authGuard] ,
+    canActivate: [authGuard],
     loadChildren:() => import("./modules/template/template.module").
     then(x => x.TemplateModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{useHash:true})],
+  imports: [RouterModule.forRoot(routes,{useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
