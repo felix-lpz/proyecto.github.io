@@ -6,6 +6,8 @@ import { ResponseVWProducto } from 'src/app/models/Response/Venta/TB_Producto/Re
 import { RequestVWProducto } from 'src/app/modules/models/Ventas/TB_Producto/Request-VW-Producto';
 import { RequestVWEmpleado } from 'src/app/modules/models/produccion/tb-empleado/Request-Vw-Empleado';
 import { ProductoService } from '../../service/producto.service';
+import { ResponseUnidad } from 'src/app/models/Response/Produccion/Response_Unidad';
+import { ConvertToBoolean } from 'src/app/functions/General_Fuctions';
 
 @Component({
   selector: 'app-ven-reg-producto',
@@ -18,6 +20,7 @@ export class VenRegProductoComponent implements OnInit{
   @Input() actionModal : number = 0;
   @Input() resVWProducto : ResponseVWProducto = new ResponseVWProducto();
   @Input() listProducto: ResponseListProducto = new ResponseListProducto(); 
+  @Input() listUnidad: ResponseUnidad  [] = [];
   //* Informacion a enviar
   @Output() CloseModalEmmit = new EventEmitter<boolean>();
   //* variables locales
@@ -45,6 +48,7 @@ export class VenRegProductoComponent implements OnInit{
   //*Métodos del crud
   Guardar(){
     this.reqVWProducto = this.myForm.getRawValue();
+    this.reqVWProducto.estadoProducto = ConvertToBoolean(this.myForm.getRawValue().estadoProducto);
     switch(this.actionModal){
       case AccionMantConst.crear:
         this.CrearProducto();
@@ -60,7 +64,7 @@ export class VenRegProductoComponent implements OnInit{
         alert(data.message);
       },
       error: ()=>{},
-      complete: ()=>{},
+      complete: ()=>{this.CerrarModal(true)},
     })
   }
   EditarProducto(){
@@ -69,7 +73,7 @@ export class VenRegProductoComponent implements OnInit{
         alert(data.message);
       },
       error: ()=>{},
-      complete: ()=>{},
+      complete: ()=>{this.CerrarModal(true)},
     })
   }
   //* Métodos de modal

@@ -1,0 +1,46 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">LISTADO DE MODELO</h1>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id Modelo</th>
+                        <th>Nombre Modelo</th>
+                        <th>Codigo Modelo</th>
+                        <th>Descripcion</th>
+                        <th>
+                            <button (click)="CrearModelo(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let m of responseModelo">
+                        <td>{{m.idModelo}}</td>
+                        <td>{{m.nombreModelo}}</td>
+                        <td>{{m.codigoModelo}}</td>
+                        <td>{{m.descripcion}}</td>   
+                        <td>
+                            <button (click)="EditarModelo(modalEdit,m)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #modalEdit>
+    <app-ven-reg-modelo
+    [title]="titleModal"
+    [actionModal]="acttionModal"
+    [resModelo]="resModelo"
+    (CloseModalEmitter)="GetCloseModalEmitter($event)"
+    ></app-ven-reg-modelo>
+</ng-template>

@@ -5,6 +5,7 @@ import { ResponseVWTrasporte } from 'src/app/models/Response/Venta/TB_Trasporte/
 import { TrasporteService } from '../../service/trasporte.service';
 import { RequestVWTrasporte } from 'src/app/modules/models/Ventas/TB_Trasporte/Request-VW-Trasporte';
 import { AccionMantConst } from 'src/app/constants/general_constant';
+import { VwTrasporte } from 'src/app/models/Response/Venta/TB_Trasporte/VW-Trasporte';
 
 @Component({
   selector: 'app-ven-reg-trasporte',
@@ -23,15 +24,17 @@ export class VenRegTrasporteComponent implements OnInit {
   //* Varaibale locales
   myForm: FormGroup;
   reqTrasporte: RequestVWTrasporte = new RequestVWTrasporte();
+  doc: string = "";
+  num: string = "";
 
   //* construt
   constructor(private fb:FormBuilder,
               private trasporteService: TrasporteService){
     this.myForm = fb.group({
       idTrasporte:[{value: 0, disabled: true},[Validators.required]],
-      nombrePersona:[null,[Validators.required]],
-      tipoPersona:[null,[Validators.required]],
-      tipoDocumento:[null,[Validators.required]],
+      nombrePersona:[{value:"", disabled: true},[Validators.required]],
+      tipoPersona:[{value:"", disabled: true},[Validators.required]],
+      tipoDocumento:[{value:"", disabled: true},[Validators.required]],
       numeroDocumento:[null,[Validators.required]],
       telefono:[null,[Validators.required]],
       codigoUbigeo:[null,[Validators.required]],
@@ -45,7 +48,41 @@ export class VenRegTrasporteComponent implements OnInit {
     this.myForm.patchValue(this.listTrasporte);
   }
   //*
-  BuscarDocumento(){}
+  BuscarDocumento(){
+    this.num = this.myForm.getRawValue().numeroDocumento;
+    switch(this.num.length)
+    {
+      case 8:
+        this.doc = "dni"
+        this.trasporteService.GetWithDNI(this.doc, this.num).subscribe({
+        next:(data: VwTrasporte)=>{
+          data.idTrasporte = 0;
+          data.tipoDocumento = this.doc;
+          data.tipoPersona = "Natural";
+          data.nombrePersona != ""? this.myForm.patchValue(data): alert("No se  encontro el usuario");
+        },
+        error:()=>{},
+        complete:()=>{}
+      })
+        break;
+      case 11:
+        this.doc = "ruc"
+        this.trasporteService.GetWithDNI(this.doc, this.num).subscribe({
+        next:(data: VwTrasporte)=>{
+          data.idTrasporte = 0;
+          data.tipoDocumento = this.doc;
+          data.tipoPersona = "Juridica";
+          data.nombrePersona != ""? this.myForm.patchValue(data): alert("No se  encontro el usuario");
+        },
+        error:()=>{},
+        complete:()=>{}
+        })
+        break;
+      default:
+        alert("No se en Encontro el usuaro");
+        break;
+    }
+  }
   Guardar(){
     this.reqTrasporte = this.myForm.getRawValue();
     switch(this.actionModal)
@@ -64,7 +101,7 @@ export class VenRegTrasporteComponent implements OnInit {
         alert(data.message);
       },
       error: () =>{},
-      complete: () =>{}
+      complete: () =>{this.CloseModal(true)}
     });
   }
   EditrarTrasporte(){
@@ -73,7 +110,7 @@ export class VenRegTrasporteComponent implements OnInit {
         alert(data.message);
       },
       error: () =>{},
-      complete: () =>{}
+      complete: () =>{this.CloseModal(true)}
     });
   }
   //* Métodos de modal

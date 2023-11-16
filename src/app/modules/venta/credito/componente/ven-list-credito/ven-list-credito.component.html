@@ -1,0 +1,52 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">LISTADO DE CREDITOS</h1>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id Credito</th>
+                        <th>Nombre Cliente</th>
+                        <th>Monto total</th>
+                        <th>Monto deuda</th>
+                        <th>Monto pagado</th>
+                        <th>Estado</th>
+                        <th>
+                            <button (click)="CrearCredito(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let credito of responseVWCredito">
+                    <tr *ngFor="let c of credito.credito">
+                        <td>{{c.idCredito}}</td>
+                        <td>{{c.nombrePersona}}</td>
+                        <td>{{c.montoTotal}}</td>
+                        <td>{{c.montoDeuda}}</td>   
+                        <td>{{c.montoPagado}}</td>
+                        <td>{{c.estadoCredito}}</td>
+                        <td>
+                            <button (click)="EditarCredito(modalEdit,c)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #modalEdit>
+    <app-ven-reg-credito
+    [title]="titleModal"
+    [resVWCredito]="resVWCredito"
+    [resListCredito]="responseListCredio"
+    [actionModal]="acctionModal"
+    [resVWCLiente]="resVWCliente"
+    (CloseEmitterModal)="GetCloseModalEmmit($event)"
+    ></app-ven-reg-credito>
+</ng-template>

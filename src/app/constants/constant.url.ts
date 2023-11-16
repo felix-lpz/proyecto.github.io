@@ -1,7 +1,7 @@
 
 
-//export const dominio = "https://localhost:7287/";
-export const dominio = "https://apizapariadlopez.somee.com/";
+export const dominio = "https://localhost:7287/";
+//export const dominio = "https://apizapariadlopez.somee.com/";
 
 
 export const urlConstants = {
@@ -13,5 +13,8 @@ export const urlConstants = {
     cliente: dominio + "api/Cliente",
     empleado: dominio + "api/Empleado",
     producto: dominio + "api/Producto",
-    trasporte: dominio + "api/Trasporte"
+    trasporte: dominio + "api/Trasporte",
+    credito: dominio + "api/Credito",
+    modelo: dominio + "api/Modelo",
+    orden: dominio + "api/Orden"
 }

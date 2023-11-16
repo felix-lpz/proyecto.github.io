@@ -28,7 +28,7 @@ export class VenListTrasporteComponent implements OnInit {
 
   //* Método ciclo de vida componente
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.ListarTrasporte();
   }
   //* Metodos Crud
   ListarTrasporte(){

@@ -50,7 +50,6 @@ export class MantProveedorRegisterComponent implements OnInit {
 
   BuscarDocumento()
   {
-    debugger;
     this.num = this.myForm.getRawValue().numerodocumento;
     console.log(this.num.length) 
     switch(this.num.length)

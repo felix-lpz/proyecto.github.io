@@ -4,6 +4,9 @@ import { ResponseVWProducto } from 'src/app/models/Response/Venta/TB_Producto/Re
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ResponseListProducto } from 'src/app/models/Response/Venta/TB_Producto/Response-List-Producto';
 import { AccionMantConst } from 'src/app/constants/general_constant';
+import { forkJoin } from 'rxjs';
+import { UnidadService } from 'src/app/modules/mantenimiento/Unidad/service/unidad.service';
+import { ResponseUnidad } from 'src/app/models/Response/Produccion/Response_Unidad';
 
 @Component({
   selector: 'app-ven-list-producto',
@@ -23,12 +26,15 @@ export class VenListProductoComponent implements OnInit {
   responseVWProducto: ResponseVWProducto [] = [];
   resVwProducto: ResponseVWProducto = new ResponseVWProducto();
   listProducto: ResponseListProducto = new ResponseListProducto();
+  unidadList: ResponseUnidad [] = [];
 
   //* LLamada al constructor
-  constructor(private productoService: ProductoService, private bsModalService: BsModalService){}
+  constructor(private productoService: ProductoService, private bsModalService: BsModalService,
+              private unidadService: UnidadService){}
   //* Método de tiempo de vida de componente
   ngOnInit(): void {
   this.ListarProductos();
+  this.ListarData();
   }
   //*Métodos de Crud
   ListarProductos(){
@@ -59,6 +65,18 @@ export class VenListProductoComponent implements OnInit {
       Object.assign({},{class:"gray modal-md"},this.config));
   }
 
+  ListarData()
+  {
+    forkJoin([
+      this.unidadService.GetAll()
+    ]).subscribe({
+      next:(data: any)=>{
+        this.unidadList = data[0];
+      },
+      error:()=>{},
+      complete:()=>{}
+    })
+  }
   GetCloseModalEmmit(res: boolean){
     this.bsModal?.hide();
     if(res)

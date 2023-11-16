@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title pull-left">{{titleModal}}</h4>
+    <h4 class="modal-title pull-left">{{title}}</h4>
     <!-- (click)="modalRef?.hide()" -->
     <button (click)="CerrarModal(true)" type="button" class="btn-close close pull-right" aria-label="Close">
         <span aria-hidden="true" class="visually-hidden">&times;</span>
@@ -11,15 +11,17 @@
 
             <div class="col-12 mt-3">
                 <div class="form-group">
-                    <label for="idProducto">Id Producto</label>
-                    <input formControlName="idProducto" id="idProducto" type="text" class="form-control" placeholder="Ingrese el Identificador">
+                    <label for="">Id Credito</label>
+                    <input formControlName="idCredito" type="text" class="form-control" placeholder="Ingrese el Identificador">
                 </div>
             </div>
 
             <div class="col-12 mt-3">
-                <div class="form-group">
-                    <label for="nomProducto">Nombre Producto</label>
-                    <input formControlName="nombreProd" id="nomProducto" type="text" class="form-control" placeholder="Ingrese el código">
+                <div class="form-group" *ngFor="let cliente of resVWCLiente">
+                    <label for="">Cliente</label>
+                    <select name="" id="" formControlName="nombrePersona" class="form-select">
+                        <option *ngFor="let c of cliente.cliente" value="{{c.nombrePersona}}">{{c.nombrePersona}}</option>
+                    </select>
                 </div>
                 <!--
                 <div *ngIf="myForm.get('codigo')?.errors &&  myForm.touched ">
@@ -28,27 +30,10 @@
                 </div>
                 -->
             </div>
-
-            <div class="col-12 mt-3">
-                <div class="form-group">
-                    <label for="codigo">Codigo Produccto</label>
-                    <input type="text" id="codigo" class="form-control" formControlName="codigoProd">
-                </div>
-            </div>
-
-            <div class="col-12 mt-3">
-                <div class="form-group">
-                    <label for="precio">Ingrese el precio</label>
-                    <input type="number" class="form-control" id="precio" formControlName="precioUnitario">
-                </div>
-            </div>
-
             <div class="col-12 mt-3">
                 <div class="form-group" >
-                    <label for="nomUnidad">Nombre Unidad</label>
-                    <select name="" id="nomUnidad" formControlName="nombreUnidad" class="form-select">
-                        <option *ngFor="let u of listUnidad" value="{{u.nombreUnidad}}">{{u.nombreUnidad}}</option>
-                    </select>
+                    <label for="">Monto total</label>
+                    <input type="number" class="form-control" name="" id="" formControlName="montoTotal">
                 </div>
                 <!--
                 <div *ngIf="myForm.get('nombre')?.errors &&  myForm.touched ">
@@ -59,25 +44,25 @@
             </div>
             <div class="col-md-12 mt-3">
                 <div class="form-group">
-                    <label for="stock">stock</label>
-                    <input formControlName="stock" id="stock" class="form-control" type="number">
+                    <label for="">Monto deuda</label>
+                    <input formControlName="montoDeuda" class="form-control" type="number">
                 </div>
             </div>
 
             <div class="col-md-12 mt-3">
                 <div class="form-group">
-                    <label for="estado">Estado</label>
-                    <select formControlName="estadoProducto" name="" id="estado" class="form-select">
-                        <option value="true">Activo</option>
-                        <option value="false">Inactivo</option>
-                    </select>
+                    <label for="">Monto pagado</label>
+                    <input formControlName="montoPagado" class="form-control" type="number">
                 </div>
             </div>
 
-            <div class="col-12 mt-3">
+            <div class="col-md-12 mt-3">
                 <div class="form-group">
-                    <label for="prod">Ingresar su Imagen</label>
-                    <input type="file" id="prod"class="form-control" formControlName="fotografia">
+                    <label for="">Estado</label>
+                    <select formControlName="estadoCredito" name="" id="" class="form-select">
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
                 </div>
             </div>
 
@@ -91,7 +76,11 @@
                 <div class="d-grid gap-2">
                     <button class="btn-block btn btn-danger btn-sm" (click)="CerrarModal(true)">CANCELAR</button>
                 </div>
+
             </div>
+           
+
         </div>
     </form>
+
 </div>

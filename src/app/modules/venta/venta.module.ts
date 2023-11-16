@@ -9,6 +9,12 @@ import { VenListProductoComponent } from './producto/componente/ven-list-product
 import { VenRegProductoComponent } from './producto/componente/ven-reg-producto/ven-reg-producto.component';
 import { VenListTrasporteComponent } from './trasporte/componente/ven-list-trasporte/ven-list-trasporte.component';
 import { VenRegTrasporteComponent } from './trasporte/componente/ven-reg-trasporte/ven-reg-trasporte.component';
+import { VenListOrdenComponent } from './orden/componente/ven-list-orden/ven-list-orden.component';
+import { VenListModeloComponent } from './modelo/componente/ven-list-modelo/ven-list-modelo.component';
+import { VenRegOrdenComponent } from './orden/componente/ven-reg-orden/ven-reg-orden.component';
+import { VenRegModeloComponent } from './modelo/componente/ven-reg-modelo/ven-reg-modelo.component';
+import { VenListCreditoComponent } from './credito/componente/ven-list-credito/ven-list-credito.component';
+import { VenRegCreditoComponent } from './credito/componente/ven-reg-credito/ven-reg-credito.component';
 
 
 @NgModule({
@@ -18,7 +24,13 @@ import { VenRegTrasporteComponent } from './trasporte/componente/ven-reg-traspor
     VenListProductoComponent,
     VenRegProductoComponent,
     VenListTrasporteComponent,
-    VenRegTrasporteComponent
+    VenRegTrasporteComponent,
+    VenListOrdenComponent,
+    VenListModeloComponent,
+    VenRegOrdenComponent,
+    VenRegModeloComponent,
+    VenListCreditoComponent,
+    VenRegCreditoComponent
   ],
   imports: [
     CommonModule,

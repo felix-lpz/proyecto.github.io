@@ -17,6 +17,6 @@ export class ClienteService extends CrudService<RequestVWCliente,ResponseVWClien
    }
    GetWithDNI(doc:string,num:string):Observable<VWCliente>
    {
-    return this.https.get<VWCliente>(`${urlConstants.empleado}/dni/${doc}/${num}`);
+    return this.https.get<VWCliente>(`${urlConstants.cliente}/dni/${doc}/${num}`);
    }
 }

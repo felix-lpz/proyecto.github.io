@@ -100,6 +100,21 @@ export class TemplateSidebarComponent implements OnInit {
                 name: "Trasporte",
                 url: "ventas/trasporte",
                 icon: this.icon.faSocks
+              },
+              {
+                name: "Orden",
+                url: "ventas/orden",
+                icon: this.icon.faStore
+              },
+              {
+                name: "Modelo",
+                url: "ventas/modelo",
+                icon: this.icon.faRightFromBracket
+              },
+              {
+                name: "Credito",
+                url: "ventas/credito",
+                icon: this.icon.faSocks
               }
             ]
           }
@@ -176,6 +191,21 @@ export class TemplateSidebarComponent implements OnInit {
                 {
                   name: "Trasporte",
                   url: "ventas/trasporte",
+                  icon: this.icon.faSocks
+                },
+                {
+                  name: "Orden",
+                  url: "ventas/orden",
+                  icon: this.icon.faStore
+                },
+                {
+                  name: "Modelo",
+                  url: "ventas/modelo",
+                  icon: this.icon.faRightFromBracket
+                },
+                {
+                  name: "Credito",
+                  url: "ventas/credito",
                   icon: this.icon.faSocks
                 }
               ]

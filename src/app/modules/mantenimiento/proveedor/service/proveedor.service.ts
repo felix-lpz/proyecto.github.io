@@ -29,6 +29,6 @@ export class ProveedorService extends CrudService<RequestProveedor,ResponseVWPro
   }
   GetWithDNI(doc:string,num:string):Observable<VWProvedor>
    {
-    return this.https.get<VWProvedor>(`${urlConstants.empleado}/dni/${doc}/${num}`);
+    return this.https.get<VWProvedor>(`${urlConstants.provedor}/dni/${doc}/${num}`);
    }
 }
