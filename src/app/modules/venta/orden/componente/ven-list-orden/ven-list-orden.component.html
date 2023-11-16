@@ -1,1 +1,52 @@
-<p>ven-list-orden works!</p>
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">LISTADO DE ORDENES</h1>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id Orden</th>
+                        <th>Nombre Cliente</th>
+                        <th>tipo orden</th>
+                        <th>fecha orden</th>
+                        <th>Fecha requerida</th>
+                        <th>Estado</th>
+                        <th>
+                            <button (click)="CrearOrden(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let orden of resVWOrden">
+                    <tr *ngFor="let o of orden.orden">
+                        <td>{{o.idOrden}}</td>
+                        <td>{{o.nombrePersona}}</td>
+                        <td>{{o.tipoOrden}}</td>
+                        <td>{{o.fechaOrden | date: 'dd-MM-YYYY'}}</td>
+                        <td>{{o.fechaRequerido | date: 'dd-MM-YYYY'}}</td>   
+                        <td>{{o.estadoOrden}}</td>
+                        <td>
+                            <button (click)="EditarOrden(modalEdit,o)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #modalEdit>
+    <app-ven-reg-orden
+    [title]="titleModal"
+    [acction]="acctionModal"
+    [responseVWOrden]="responseVWOrden"
+    [responseListOrden]="responseListOrden"
+    [responseVWCliente]="resCliente"
+    (CloseModalEmitt)="GetCloseModalEmitt($event)"
+    ></app-ven-reg-orden>
+</ng-template>

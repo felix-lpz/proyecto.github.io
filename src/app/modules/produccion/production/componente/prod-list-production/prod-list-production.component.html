@@ -1,0 +1,54 @@
+<div class="container-fluid px-4 mt-5">
+    <div class="card bg-light mb-3">
+        <div class="card-header text-center">
+            <h1 class="mt-4">LISTA DE PRODUCCIONES</h1>
+        </div>
+        <div class="card-body">
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Id Produccion</th>
+                        <th>NombreUnidad</th>
+                        <th>Meta</th>
+                        <th>Cantidad Faltante</th>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Fin</th>
+                        <th>Estado</th>
+                        <th>
+                            <button (click)="CrearProduction(modalEdit)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let production of responseVwProduction">
+                    <tr *ngFor="let p of production.produccion">
+                        <td>{{p.idProduccion}}</td>
+                        <td>{{p.nombreUnidad}}</td>
+                        <td>{{p.meta}}</td>
+                        <td>{{p.cantidadFaltante}}</td>   
+                        <td>{{p.fechaInicio | date:'dd-MM-YYYY'}}</td>
+                        <td>{{p.fechaFinalizacion | date:'dd-MM-YYYY'}}</td>
+                        <td>{{p.estadoProduccion}}</td>
+                        <td>
+                            <button (click)="EditarProducciton(modalEdit,p)" class="btn btn-primary btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ng-template #modalEdit>
+    <app-prod-reg-production
+    [title]="titleModal"
+    [acttioModal]="acttionModal"
+    [responseVWProduction]="resVWProduction"
+    [responseListProducton]="resListaProduction"
+    [listarUnidad]="resUnidad"
+    (CloseModalEmitter)="GetCloseModalEmitter($event)"
+    ></app-prod-reg-production>
+</ng-template>

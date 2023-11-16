@@ -16,5 +16,6 @@ export const urlConstants = {
     trasporte: dominio + "api/Trasporte",
     credito: dominio + "api/Credito",
     modelo: dominio + "api/Modelo",
-    orden: dominio + "api/Orden"
+    orden: dominio + "api/Orden",
+    produccion: dominio + "api/Produccion"
 }

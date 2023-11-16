@@ -44,6 +44,7 @@ export class VenListTrasporteComponent implements OnInit {
     this.titleModal = "Crear un trasporte";
     this.actionModal = AccionMantConst.crear;
     this.resTrasporte = new ResponseVWTrasporte();
+    this.listTrasporte = new ResponseListTrasporte();
     this.OpenModal(template);
   }
   EditarTrasporte(template: TemplateRef<any>, trasporte: ResponseListTrasporte){

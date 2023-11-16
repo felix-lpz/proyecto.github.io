@@ -77,6 +77,11 @@ export class TemplateSidebarComponent implements OnInit {
                 name: "Empleado",
                 url:"produccion/empleado",
                 icon: this.icon.faPerson
+              },
+              {
+                name: "Produccion",
+                url: "produccion/production",
+                icon: this.icon.faSocks
               }
             ]
           },

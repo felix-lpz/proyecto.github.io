@@ -47,7 +47,8 @@ export class VenListProductoComponent implements OnInit {
     });
   }
   CreateProducto(template: TemplateRef<any>){
-    this.resVwProducto = new ResponseVWProducto();
+    //this.resVwProducto = new ResponseVWProducto();
+    this.listProducto = new ResponseListProducto();
     this.titleModal = "Crear un nuevo Producto"
     this.acctionModal = AccionMantConst.crear;
     this.OpenModal(template);
